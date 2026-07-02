@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Configurações Globais do Menu (Variáveis de Cor Modernas) */
+        :root {
+        --bg-navbar: rgba(15, 23, 42, 0.65); /* Azul marinho escuro translúcido */
+        --border-navbar: rgba(255, 255, 255, 0.08);
+        --text-main: #f8fafc;
+        --text-muted: #94a3b8;
+        --color-accent: #38bdf8; /* Azul ciano vibrante para o estado ativo/links */
+        }
+
+        /* Container que faz o menu flutuar no topo do ecrã */
+        .header-capsule {
+        position: fixed;
+        top: 20px;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        padding: 0 20px;
+        box-sizing: border-box;
+        }
+
+        /* A Cápsula Estilizada (Design da Imagem) */
+        .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 1200px;
+        background-color: var(--bg-navbar);
+        backdrop-filter: blur(12px); /* Efeito de vidro focado atrás da barra */
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid var(--border-navbar);
+        border-radius: 100px; /* Garante as pontas perfeitamente arredondadas */
+        padding: 12px 32px;
+        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Bloco Esquerdo: Texto em Duas Linhas */
+        .nav-identity {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        }
+
+        .nav-name {
+        color: var(--text-main);
+        font-weight: 700;
+        font-size: 0.95rem;
+        letter-spacing: 0.5px;
+        }
+
+        .nav-title {
+        color: var(--text-muted);
+        font-size: 0.75rem;
+        font-weight: 400;
+        }
+
+        /* Bloco Central: Menu Horizontal */
+        .nav-links {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        margin: 0;
+        padding: 0;
+        }
+
+        .nav-item {
+        text-decoration: none;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        font-weight: 500;
+        transition: color 0.25s ease;
+        }
+
+        /* Estados de Hover e Ativo para a navegação */
+        .nav-item:hover,
+        .nav-item.active {
+        color: var(--color-accent);
+        }
+
+        /* Bloco Direito: Flexbox para alinhar as ações */
+        .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        }
+
+        /* Botão Download My CV com o sublinhado elegante */
+        .cv-download {
+        text-decoration: none;
+        color: var(--text-main);
+        font-size: 0.85rem;
+        font-weight: 500;
+        border-bottom: 1px solid var(--text-main);
+        padding-bottom: 2px;
+        transition: opacity 0.2s ease;
+        }
+
+        .cv-download:hover {
+        opacity: 0.8;
+        }
+
+        /* Seletor de Idioma */
+        .lang-switcher {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        }
+
+        .lang-option {
+        cursor: pointer;
+        transition: color 0.2s ease;
+        }
+
+        .lang-option:hover,
+        .lang-option.active {
+        color: var(--text-main);
+        }
+
+        .lang-divider {
+        color: rgba(255, 255, 255, 0.2);
+        cursor: default;
+        }
+
+        /* Ícone de Alternar Tema (Botão Invisível) */
+        .theme-toggle {
+        background: none;
+        border: none;
+        color: var(--text-muted);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        padding: 4px;
+        transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .theme-toggle:hover {
+        color: var(--text-main);
+        transform: scale(1.05);
+        }
+
+        /* Responsividade Básica (Esconde o menu completo em ecrãs pequenos) */
+        @media (max-width: 900px) {
+        .nav-links {
+            display: none; /* Aqui no futuro podes implementar o menu hambúrguer */
+        }
+        }
+    </style> 
+</head>
+<body>
+    <header class="header-capsule">
+  <nav class="navbar">
+    
+    <!-- Bloco Esquerdo: Identidade (Sem foto) -->
+    <div class="nav-identity">
+      <span class="nav-name">O Teu Nome</span>
+      <span class="nav-title">Software Engineering Student & IT Support</span>
+    </div>
+
+    <!-- Bloco Central: Links de Navegação -->
+    <ul class="nav-links">
+      <li><a href="#home" class="nav-item active">Home</a></li>
+      <li><a href="#about" class="nav-item">About Me</a></li>
+      <li><a href="#experience" class="nav-item">Experience</a></li>
+      <li><a href="#skills" class="nav-item">Skills</a></li>
+      <li><a href="#projects" class="nav-item">Projects</a></li>
+      <li><a href="#blog" class="nav-item">Blog</a></li>
+      <li><a href="#contacts" class="nav-item">Contacts</a></li>
+    </ul>
+
+    <!-- Bloco Direito: Ações (CV, Idioma e Tema) -->
+    <div class="nav-actions">
+      <a href="seu-curriculo.pdf" target="_blank" class="cv-download">Download my CV</a>
+      
+      <!-- Seletor de Idioma (i18n) -->
+      <div class="lang-switcher">
+        <span class="lang-option active">EN</span>
+        <span class="lang-divider">|</span>
+        <span class="lang-option">PT</span>
+      </div>
+
+      <!-- Alternador de Tema (Ícone de Sol em SVG) -->
+      <button class="theme-toggle" aria-label="Toggle Theme">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="18.36" x2="5.64" y2="19.78"></line>
+          <line x1="18.36" y1="4.22" x2="19.78" y2="5.64"></line>
+        </svg>
+      </button>
+    </div>
+  </nav>
+</header>
+</body>
+</html>
