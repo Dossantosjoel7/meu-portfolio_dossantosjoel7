@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact</title>
+        <link rel="icon" type="image/ico" href="./public/transferir.ico"/>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+        <!-- Geist-like fallback using Inter/System for simulated look as Geist is a specific local font, but we will use the config classes which are mapped to 'Geist' -->
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+        <style>
+                @font-face {
+                    font-family: 'Geist';
+                    src: url('https://fonts.cdnfonts.com/s/93430/Geist-Regular.woff') format('woff');
+                }
+                @font-face {
+                    font-family: 'Geist';
+                    font-weight: 700;
+                    src: url('https://fonts.cdnfonts.com/s/93430/Geist-Bold.woff') format('woff');
+                }
+                
+                body {
+                    background-color: #0A0A0B;
+                    color: #e3e2e7;
+                    -webkit-font-smoothing: antialiased;
+                }
+
+                .glow-blue {
+                    box-shadow: 0 0 20px rgba(0, 122, 255, 0.15);
+                }
+
+                .glow-orange {
+                    box-shadow: 0 0 20px rgba(255, 140, 0, 0.15);
+                }
+
+                .hover-glow:hover {
+                    box-shadow: 0 0 30px rgba(0, 122, 255, 0.25);
+                    border-color: #007AFF;
+                }
+
+                .ide-bg {
+                    background: linear-gradient(135deg, #111111 0%, #050505 100%);
+                }
+
+                .material-symbols-outlined {
+                    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+                     vertical-align: middle;
+                }
+
+                .hero-gradient {
+                    background: radial-gradient(circle at 20% 30%, rgba(0, 122, 255, 0.05) 0%, transparent 50%),
+                                radial-gradient(circle at 80% 70%, rgba(255, 140, 0, 0.05) 0%, transparent 50%);
+                }
+
+                .animate-marquee {
+                    display: inline-block;
+                    animation: marquee 30s linear infinite;
+                }
+
+                @keyframes marquee {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-50%); }
+                }
+
+
+                .glow-border:hover {
+                    border-color: #007AFF;
+                    box-shadow: 0 0 15px rgba(0, 122, 255, 0.15);
+                }
+
+                .terminal-cursor::after {
+                    content: '_';
+                    animation: blink 1s step-end infinite;
+                }
+
+                @keyframes blink {
+                    50% { opacity: 0; }
+                }
+
+                .backdrop-blur-xl {
+                    backdrop-filter: blur(24px);
+                    -webkit-backdrop-filter: blur(24px);
+                }
+
+            </style>
+            <script id="tailwind-config">
+                    tailwind.config = {
+                    darkMode: "class",
+                    theme: {
+                        extend: {
+                        "colors": {
+                                "primary-container": "#acc6ff",
+                                "surface-container": "#1e1f23",
+                                "secondary-fixed": "#ffdcc3",
+                                "on-primary": "#002e69",
+                                "on-secondary": "#4d2600",
+                                "surface-container-high": "#292a2d",
+                                "on-surface": "#e3e2e7",
+                                "surface-border": "#222222",
+                                "on-secondary-fixed-variant": "#6b3b0a",
+                                "primary-fixed-dim": "#adc6ff",
+                                "on-background": "#e3e2e7",
+                                "tertiary-fixed": "#e4e2e1",
+                                "inverse-primary": "#005bc1",
+                                "on-secondary-container": "#efa971",
+                                "surface-dim": "#121317",
+                                "on-error": "#690005",
+                                "primary": "#d7e2ff",
+                                "surface-card": "#111111",
+                                "error": "#ffb4ab",
+                                "background": "#121317",
+                                "error-container": "#93000a",
+                                "on-primary-fixed-variant": "#004493",
+                                "tertiary": "#e4e2e1",
+                                "on-tertiary-fixed": "#1b1c1b",
+                                "surface-tint": "#adc6ff",
+                                "secondary-container": "#6e3d0d",
+                                "tertiary-container": "#c8c6c5",
+                                "on-error-container": "#ffdad6",
+                                "on-primary-container": "#004fa9",
+                                "tertiary-fixed-dim": "#c8c6c5",
+                                "on-surface-variant": "#c4c6d0",
+                                "on-secondary-fixed": "#2f1500",
+                                "primary-fixed": "#d8e2ff",
+                                "surface-container-lowest": "#0d0e11",
+                                "on-primary-fixed": "#001a41",
+                                "secondary-fixed-dim": "#ffb77d",
+                                "outline": "#8e909a",
+                                "on-tertiary-container": "#535252",
+                                "surface-variant": "#343538",
+                                "inverse-on-surface": "#2f3034",
+                                "secondary": "#ffb77d",
+                                "surface-container-highest": "#343538",
+                                "surface-container-low": "#1a1b1f",
+                                "cyber-orange": "#FF8C00",
+                                "surface-bright": "#38393d",
+                                "electric-blue": "#007AFF",
+                                "surface": "#121317",
+                                "on-tertiary-fixed-variant": "#474746",
+                                "text-muted": "#888888",
+                                "inverse-surface": "#e3e2e7",
+                                "on-tertiary": "#303030",
+                                "outline-variant": "#44474f",
+                                "surface-main": "#0A0A0B"
+                        },
+                        "borderRadius": {
+                                "DEFAULT": "0.125rem",
+                                "lg": "0.25rem",
+                                "xl": "0.5rem",
+                                "full": "0.75rem"
+                        },
+                        "spacing": {
+                                "stack-sm": "0.5rem",
+                                "stack-md": "1.5rem",
+                                "stack-lg": "3rem",
+                                "margin-page": "5vw",
+                                "gutter-grid": "2rem",
+                                "section-gap": "8rem"
+                        },
+                        "fontFamily": {
+                                "headline-xl": ["Geist", "Inter", "sans-serif"],
+                                "headline-md": ["Geist", "Inter", "sans-serif"],
+                                "label-md": ["Geist", "Inter", "sans-serif"],
+                                "body-lg": ["Inter", "sans-serif"],
+                                "label-sm": ["Geist", "Inter", "sans-serif"],
+                                "headline-lg": ["Geist", "Inter", "sans-serif"],
+                                "headline-xl-mobile": ["Geist", "Inter", "sans-serif"],
+                                "body-md": ["Inter", "sans-serif"]
+                        },
+                        "fontSize": {
+                                "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                                "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                                "label-md": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                                "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "600"}],
+                                "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                                "headline-xl-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                                "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                        }
+                        },
+                    },
+                    }
+                </script>
+    </head>
+    <body class="bg-surface-main text-on-surface selection:bg-electric-blue/30 overflow-x-hidden">
+        <!-- TopNavBar -->
+        <div class="fixed top-4 left-0 right-0 z-50 px-margin-page flex justify-center">
+        <nav class="w-full max-w-7xl backdrop-blur-md border border-surface-border rounded-full flex justify-between items-center px-8 py-3 shadow-lg bg-surface-main/80">
+        <!-- Identity (Left) -->
+        <div class="flex flex-col">
+        <span class="font-headline-md text-headline-md font-bold text-on-surface tracking-tighter leading-none mb-2">Joel Luis dos Santos</span>
+        <span class="font-label-sm text-label-sm text-text-muted leading-none">👨‍💻 Tech Enthusiast | 🎓Computer Science & Engineering Student🚀</span>
+        </div>
+        <!-- Navigation Links (Center) - Hidden on Mobile -->
+        <div class="hidden md:flex gap-8 items-center">
+        <a class="font-label-sm text-label-sm text-text-muted hover:text-electric-blue transition-colors" href="#">Home</a>
+        <a class="font-label-sm text-label-sm text-text-muted hover:text-electric-blue transition-colors" href="#">Projects</a>
+        <a class="font-label-sm text-label-sm text-electric-blue hover:text-electric-blue transition-colors relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-electric-blue" href="#">Blog</a>
+        <a class="font-label-sm text-label-sm text-text-muted hover:text-electric-blue transition-colors" href="#">Contact</a>
+        </div>
+        <!-- Actions (Right) -->
+        <div class="flex items-center gap-6">
+        <!-- Language Toggle -->
+        <div class="hidden md:flex items-center bg-surface-container-high rounded-full p-1 border border-surface-border">
+        <button class="px-3 py-1 rounded-full bg-electric-blue text-white font-label-sm text-label-sm shadow-sm">EN</button>
+        <button class="px-3 py-1 rounded-full text-text-muted hover:text-on-surface font-label-sm text-label-sm transition-colors">PT</button>
+        </div>
+        <!-- Download CV -->
+        <button class="hidden md:flex bg-electric-blue text-white px-5 py-2.5 font-label-sm text-label-sm rounded-full active:opacity-80 active:scale-95 hover:bg-electric-blue/90 transition-all items-center gap-2">
+                        Download CV
+        </button>
+        <!-- Mobile Menu Trigger -->
+        <button class="md:hidden material-symbols-outlined text-on-surface" data-icon="menu">menu</button>
+        </div>
+        </nav>
+        </div>
+        <!-- End TopNavBar -->
+        <!-- Main -->
+        <main class="max-w-7xl mx-auto px-margin-page pt-32 pb-section-gap">
+        <!-- Hero / Intro -->
+        <section class="mb-stack-lg border-l-2 border-electric-blue pl-8 py-4">
+        <h1 class="font-headline-xl text-headline-xl mb-stack-sm tracking-tighter">
+                        My <span class="text-electric-blue">Dev Diary</span>
+        </h1>
+        <p class="font-body-lg text-body-lg text-text-muted max-w-2xl terminal-cursor">
+                        Documentation of technical challenges, my ideas, and various topics. Take a look.
+                    </p>
+        </section>
+        <!-- Filters/Sub-nav -->
+        <div class="flex flex-wrap gap-4 mb-stack-lg">
+        <button class="px-4 py-2 border border-electric-blue bg-electric-blue/10 text-electric-blue font-label-md text-label-md rounded">All Logs</button>
+        <button class="px-4 py-2 border border-surface-border hover:border-electric-blue text-text-muted hover:text-on-surface font-label-md text-label-md rounded transition-all">Devlog</button>
+        <button class="px-4 py-2 border border-surface-border hover:border-electric-blue text-text-muted hover:text-on-surface font-label-md text-label-md rounded transition-all">Tutorial</button>
+        <button class="px-4 py-2 border border-surface-border hover:border-electric-blue text-text-muted hover:text-on-surface font-label-md text-label-md rounded transition-all">IT Insights</button>
+        </div>
+        <!-- Devlog Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter-grid">
+        <!-- Post Card 1 -->
+        <article class="flex flex-col bg-surface-card border border-surface-border rounded-lg p-6 group hover:border-electric-blue glow-border transition-all duration-300 h-full">
+        <div class="flex justify-between items-start mb-stack-md">
+        <span class="font-label-sm text-label-sm text-cyber-orange border border-cyber-orange/30 px-2 py-1 rounded bg-cyber-orange/5">DEVLOG</span>
+        <div class="text-right">
+        <p class="font-label-sm text-label-sm text-text-muted">OCT 24, 2024</p>
+        <p class="font-label-sm text-label-sm text-text-muted">12 MIN READ</p>
+        </div>
+        </div>
+        <h3 class="font-headline-md text-headline-md mb-stack-sm leading-tight group-hover:text-electric-blue transition-colors">Optimizing Memory Allocation in C++ Embedded Systems</h3>
+        <p class="font-body-md text-body-md text-text-muted mb-stack-md flex-grow">A deep dive into custom allocators and fragmentation prevention strategies for mission-critical hardware.</p>
+        <div class="flex flex-wrap gap-2 mb-stack-md">
+        <div class="flex items-center gap-1.5 px-2 py-1 bg-surface-container-highest border border-surface-border rounded font-label-sm text-label-sm">
+        <span class="material-symbols-outlined text-[14px]" data-icon="memory">memory</span>
+                                C++
+                            </div>
+        <div class="flex items-center gap-1.5 px-2 py-1 bg-surface-container-highest border border-surface-border rounded font-label-sm text-label-sm">
+        <span class="material-symbols-outlined text-[14px]" data-icon="settings_ethernet">settings_ethernet</span>
+                                Embedded
+                            </div>
+        <div class="flex items-center gap-1.5 px-2 py-1 bg-surface-container-highest border border-surface-border rounded font-label-sm text-label-sm">
+        <span class="material-symbols-outlined text-[14px]" data-icon="speed">speed</span>
+                                Kernel
+                            </div>
+        </div>
+        <a class="inline-flex items-center gap-2 text-electric-blue font-label-md text-label-md group/link" href="#">
+                            READ_FULL_LOG
+                            <span class="material-symbols-outlined group-hover/link:translate-x-1 transition-transform" data-icon="keyboard_arrow_right">keyboard_arrow_right</span>
+        </a>
+        </article>
+        <!-- Post Card 2 -->
+        <article class="flex flex-col bg-surface-card border border-surface-border rounded-lg p-6 group hover:border-electric-blue glow-border transition-all duration-300 h-full">
+        <div class="flex justify-between items-start mb-stack-md">
+        <span class="font-label-sm text-label-sm text-electric-blue border border-electric-blue/30 px-2 py-1 rounded bg-electric-blue/5">TUTORIAL</span>
+        <div class="text-right">
+        <p class="font-label-sm text-label-sm text-text-muted">OCT 18, 2024</p>
+        <p class="font-label-sm text-label-sm text-text-muted">08 MIN READ</p>
+        </div>
+        </div>
+        <h3 class="font-headline-md text-headline-md mb-stack-sm leading-tight group-hover:text-electric-blue transition-colors">Hardening Linux Servers for Scale</h3>
+        <p class="font-body-md text-body-md text-text-muted mb-stack-md flex-grow">Essential security protocols and firewall configurations for production-level cloud environments.</p>
+        <div class="flex flex-wrap gap-2 mb-stack-md">
+        <div class="flex items-center gap-1.5 px-2 py-1 bg-surface-container-highest border border-surface-border rounded font-label-sm text-label-sm">
+        <span class="material-symbols-outlined text-[14px]" data-icon="terminal">terminal</span>
+                                Linux
+                            </div>
+        <div class="flex items-center gap-1.5 px-2 py-1 bg-surface-container-highest border border-surface-border rounded font-label-sm text-label-sm">
+        <span class="material-symbols-outlined text-[14px]" data-icon="security">security</span>
+                                Security
+                            </div>
+        </div>
+        <a class="inline-flex items-center gap-2 text-electric-blue font-label-md text-label-md group/link" href="#">
+                            READ_FULL_LOG
+                            <span class="material-symbols-outlined group-hover/link:translate-x-1 transition-transform" data-icon="keyboard_arrow_right">keyboard_arrow_right</span>
+        </a>
+        </article>
+        <!-- Post Card 3 -->
+        <article class="flex flex-col bg-surface-card border border-surface-border rounded-lg p-6 group hover:border-electric-blue glow-border transition-all duration-300 h-full">
+        <div class="flex justify-between items-start mb-stack-md">
+        <span class="font-label-sm text-label-sm text-on-tertiary-container border border-tertiary-container/30 px-2 py-1 rounded bg-tertiary-container/5">IT INSIGHTS</span>
+        <div class="text-right">
+        <p class="font-label-sm text-label-sm text-text-muted">OCT 12, 2024</p>
+        <p class="font-label-sm text-label-sm text-text-muted">15 MIN READ</p>
+        </div>
+        </div>
+        <h3 class="font-headline-md text-headline-md mb-stack-sm leading-tight group-hover:text-electric-blue transition-colors">The Future of AI in Static Code Analysis</h3>
+        <p class="font-body-md text-body-md text-text-muted mb-stack-md flex-grow">Predicting vulnerabilities before the first build: How LLMs are changing the CI/CD pipeline.</p>
+        <div class="flex flex-wrap gap-2 mb-stack-md">
+        <div class="flex items-center gap-1.5 px-2 py-1 bg-surface-container-highest border border-surface-border rounded font-label-sm text-label-sm">
+        <span class="material-symbols-outlined text-[14px]" data-icon="psychology">psychology</span>
+                                AI
+                            </div>
+        <div class="flex items-center gap-1.5 px-2 py-1 bg-surface-container-highest border border-surface-border rounded font-label-sm text-label-sm">
+        <span class="material-symbols-outlined text-[14px]" data-icon="code">code</span>
+                                Analysis
+                            </div>
+        </div>
+        <a class="inline-flex items-center gap-2 text-electric-blue font-label-md text-label-md group/link" href="#">
+                            READ_FULL_LOG
+                            <span class="material-symbols-outlined group-hover/link:translate-x-1 transition-transform" data-icon="keyboard_arrow_right">keyboard_arrow_right</span>
+        </a>
+        </article>
+        <!-- Post Card 4 -->
+        <article class="flex flex-col bg-surface-card border border-surface-border rounded-lg p-6 group hover:border-electric-blue glow-border transition-all duration-300 h-full">
+        <div class="flex justify-between items-start mb-stack-md">
+        <span class="font-label-sm text-label-sm text-cyber-orange border border-cyber-orange/30 px-2 py-1 rounded bg-cyber-orange/5">DEVLOG</span>
+        <div class="text-right">
+        <p class="font-label-sm text-label-sm text-text-muted">SEP 30, 2024</p>
+        <p class="font-label-sm text-label-sm text-text-muted">20 MIN READ</p>
+        </div>
+        </div>
+        <h3 class="font-headline-md text-headline-md mb-stack-sm leading-tight group-hover:text-electric-blue transition-colors">Micro-Service Architecture with Rust</h3>
+        <p class="font-body-md text-body-md text-text-muted mb-stack-md flex-grow">Scaling my private cloud infrastructure using safe-concurrency and Zero-Cost abstractions.</p>
+        <div class="flex flex-wrap gap-2 mb-stack-md">
+        <div class="flex items-center gap-1.5 px-2 py-1 bg-surface-container-highest border border-surface-border rounded font-label-sm text-label-sm">
+        <span class="material-symbols-outlined text-[14px]" data-icon="hub">hub</span>
+                                Rust
+                            </div>
+        <div class="flex items-center gap-1.5 px-2 py-1 bg-surface-container-highest border border-surface-border rounded font-label-sm text-label-sm">
+        <span class="material-symbols-outlined text-[14px]" data-icon="cloud">cloud</span>
+                                Architecture
+                            </div>
+        </div>
+        <a class="inline-flex items-center gap-2 text-electric-blue font-label-md text-label-md group/link" href="#">
+                            READ_FULL_LOG
+                            <span class="material-symbols-outlined group-hover/link:translate-x-1 transition-transform" data-icon="keyboard_arrow_right">keyboard_arrow_right</span>
+        </a>
+        </article>
+        <!-- Post Card 5 -->
+        <article class="flex flex-col bg-surface-card border border-surface-border rounded-lg p-6 group hover:border-electric-blue glow-border transition-all duration-300 h-full">
+        <div class="flex justify-between items-start mb-stack-md">
+        <span class="font-label-sm text-label-sm text-electric-blue border border-electric-blue/30 px-2 py-1 rounded bg-electric-blue/5">TUTORIAL</span>
+        <div class="text-right">
+        <p class="font-label-sm text-label-sm text-text-muted">SEP 22, 2024</p>
+        <p class="font-label-sm text-label-sm text-text-muted">05 MIN READ</p>
+        </div>
+        </div>
+        <h3 class="font-headline-md text-headline-md mb-stack-sm leading-tight group-hover:text-electric-blue transition-colors">Debugging Async Python with GDB</h3>
+        <p class="font-body-md text-body-md text-text-muted mb-stack-md flex-grow">When print statements aren't enough: Inspecting stack frames in complex asynchronous loops.</p>
+        <div class="flex flex-wrap gap-2 mb-stack-md">
+        <div class="flex items-center gap-1.5 px-2 py-1 bg-surface-container-highest border border-surface-border rounded font-label-sm text-label-sm">
+        <span class="material-symbols-outlined text-[14px]" data-icon="bug_report">bug_report</span>
+                                Debugging
+                            </div>
+        <div class="flex items-center gap-1.5 px-2 py-1 bg-surface-container-highest border border-surface-border rounded font-label-sm text-label-sm">
+        <span class="material-symbols-outlined text-[14px]" data-icon="integration_instructions">integration_instructions</span>
+                                Python
+                            </div>
+        </div>
+        <a class="inline-flex items-center gap-2 text-electric-blue font-label-md text-label-md group/link" href="#">
+                            READ_FULL_LOG
+                            <span class="material-symbols-outlined group-hover/link:translate-x-1 transition-transform" data-icon="keyboard_arrow_right">keyboard_arrow_right</span>
+        </a>
+        </article>
+        <!-- Featured Image Card (Asymmetric Layout) -->
+        <div class="lg:col-span-1 border border-surface-border rounded-lg overflow-hidden relative group">
+        <div class="absolute inset-0 bg-gradient-to-t from-surface-main via-transparent to-transparent z-10"></div>
+        <div class="w-full h-full min-h-[300px] bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A dark, cinematic high-angle shot of a complex server room with neon blue and orange fiber optic cables glowing in the dark. The environment is minimalist and technical, with a sense of immense processing power and digital precision. The lighting is low-key, emphasizing the high-contrast tech aesthetic of the Cyber-Minimalist brand." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDLdC7ie2ghON80ycF8Y-9fU0lBIX_HFt52i5UO_yNJBEzXPFReZiEpNue0U3lFZUjD5oKtus8oYz83WyFPqO0THOqww0gSbrmrzHU-58ju1qEWldGURv1EJkV8IMlowsLKyq68QcUcO-TFAZN7ZNaoiW22OxqgUzLoC_47i9OZzndS9vE_y55_5xXyRZdW1sNfpKzg0bHAEPMMCQO6BxSUwYvquHos8ObnEZPPDHwXLy2a761PqGk')"></div>
+        <div class="absolute bottom-6 left-6 z-20">
+        <h4 class="font-headline-md text-headline-md text-white mb-2">Visualizing Logic</h4>
+        <p class="font-label-sm text-label-sm text-electric-blue font-bold tracking-widest uppercase">The Workspace Series</p>
+        </div>
+        </div>
+        </div>
+        <!-- Pagination -->
+        <div class="mt-stack-lg flex justify-center items-center gap-4">
+        <button class="w-12 h-12 flex items-center justify-center border border-surface-border rounded text-text-muted hover:border-electric-blue hover:text-electric-blue transition-all">
+        <span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+        </button>
+        <div class="flex gap-2">
+        <span class="w-12 h-12 flex items-center justify-center border border-electric-blue text-electric-blue font-bold rounded">01</span>
+        <button class="w-12 h-12 flex items-center justify-center border border-surface-border text-text-muted hover:border-electric-blue hover:text-electric-blue rounded transition-all">02</button>
+        <button class="w-12 h-12 flex items-center justify-center border border-surface-border text-text-muted hover:border-electric-blue hover:text-electric-blue rounded transition-all">03</button>
+        <span class="w-12 h-12 flex items-center justify-center text-text-muted">...</span>
+        </div>
+        <button class="w-12 h-12 flex items-center justify-center border border-surface-border rounded text-text-muted hover:border-electric-blue hover:text-electric-blue transition-all">
+        <span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+        </button>
+        </div>
+        </main>
+        <!-- End Main -->
+        <!-- Footer -->
+        <footer class="border-t border-surface-border bg-surface-container-lowest flex flex-col md:flex-row justify-between items-center px-margin-page py-stack-lg w-full gap-8">
+        <div class="font-headline-md text-headline-md font-bold text-on-surface">
+                    Joel Luis dos Santos
+                </div>
+        <div class="text-text-muted font-label-sm text-label-sm text-center md:text-left">
+                    © 2026 👨‍💻 Tech Enthusiast | 🎓Computer Science & Engineering Student🚀
+                </div>
+        <div class="flex gap-8">
+        <a class="font-label-sm text-label-sm text-text-muted hover:text-cyber-orange underline transition-all hover:translate-x-1" href="https://linkedin.com/in/joel-luís-dos-santos-0ba20b286">LinkedIn</a>
+        <a class="font-label-sm text-label-sm text-text-muted hover:text-cyber-orange underline transition-all hover:translate-x-1" href="https://github.com/Dossantosjoel7">GitHub</a>
+        <a class="font-label-sm text-label-sm text-text-muted hover:text-cyber-orange underline transition-all hover:translate-x-1" href="https://dinq.me/dossantosjoel7">Dinq.me</a>
+        </div>
+        </footer>
+        <!-- End Footer -->
+        <script>
+                // Micro-interactions and simple logic
+                document.addEventListener('DOMContentLoaded', () => {
+                    // Smooth parallax-ish entry
+                    const observerOptions = {
+                        threshold: 0.1
+                    };
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('opacity-100', 'translate-y-0');
+                                entry.target.classList.remove('opacity-0', 'translate-y-10');
+                            }
+                        });
+                    }, observerOptions);
+
+                    document.querySelectorAll('section').forEach(section => {
+                        section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+                        observer.observe(section);
+                    });
+                });
+
+                // Micro-interaction: Header opacity on scroll
+                window.addEventListener('scroll', () => {
+                    const header = document.querySelector('header');
+                    if (window.scrollY > 20) {
+                        header.classList.add('bg-surface/90');
+                        header.classList.add('shadow-lg');
+                    } else {
+                        header.classList.remove('bg-surface/90');
+                        header.classList.remove('shadow-lg');
+                    }
+                });
+
+                // Hover effect for experience cards / tech badges
+                document.querySelectorAll('article').forEach(card => {
+                    card.addEventListener('mouseenter', () => {
+                        // Potential for adding canvas/particle effects on specific elements if desired
+                    });
+                });
+    
+            </script>
+            
+    </body>
+</html>
+

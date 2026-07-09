@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact</title>
+        <link rel="icon" type="image/ico" href="./public/transferir.ico"/>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+        <!-- Geist-like fallback using Inter/System for simulated look as Geist is a specific local font, but we will use the config classes which are mapped to 'Geist' -->
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+        <style>
+                @font-face {
+                    font-family: 'Geist';
+                    src: url('https://fonts.cdnfonts.com/s/93430/Geist-Regular.woff') format('woff');
+                }
+                @font-face {
+                    font-family: 'Geist';
+                    font-weight: 700;
+                    src: url('https://fonts.cdnfonts.com/s/93430/Geist-Bold.woff') format('woff');
+                }
+                
+                body {
+                    background-color: #0A0A0B;
+                    color: #e3e2e7;
+                    -webkit-font-smoothing: antialiased;
+                }
+
+                .glow-blue {
+                    box-shadow: 0 0 20px rgba(0, 122, 255, 0.15);
+                }
+
+                .glow-orange {
+                    box-shadow: 0 0 20px rgba(255, 140, 0, 0.15);
+                }
+
+                .hover-glow:hover {
+                    box-shadow: 0 0 30px rgba(0, 122, 255, 0.25);
+                    border-color: #007AFF;
+                }
+
+                .ide-bg {
+                    background: linear-gradient(135deg, #111111 0%, #050505 100%);
+                }
+
+                .material-symbols-outlined {
+                    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+                }
+
+                .hero-gradient {
+                    background: radial-gradient(circle at 20% 30%, rgba(0, 122, 255, 0.05) 0%, transparent 50%),
+                                radial-gradient(circle at 80% 70%, rgba(255, 140, 0, 0.05) 0%, transparent 50%);
+                }
+
+                .animate-marquee {
+                    display: inline-block;
+                    animation: marquee 30s linear infinite;
+                }
+
+                @keyframes marquee {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-50%); }
+                }
+            </style>
+            <script id="tailwind-config">
+                    tailwind.config = {
+                    darkMode: "class",
+                    theme: {
+                        extend: {
+                        "colors": {
+                                "primary-container": "#acc6ff",
+                                "surface-container": "#1e1f23",
+                                "secondary-fixed": "#ffdcc3",
+                                "on-primary": "#002e69",
+                                "on-secondary": "#4d2600",
+                                "surface-container-high": "#292a2d",
+                                "on-surface": "#e3e2e7",
+                                "surface-border": "#222222",
+                                "on-secondary-fixed-variant": "#6b3b0a",
+                                "primary-fixed-dim": "#adc6ff",
+                                "on-background": "#e3e2e7",
+                                "tertiary-fixed": "#e4e2e1",
+                                "inverse-primary": "#005bc1",
+                                "on-secondary-container": "#efa971",
+                                "surface-dim": "#121317",
+                                "on-error": "#690005",
+                                "primary": "#d7e2ff",
+                                "surface-card": "#111111",
+                                "error": "#ffb4ab",
+                                "background": "#121317",
+                                "error-container": "#93000a",
+                                "on-primary-fixed-variant": "#004493",
+                                "tertiary": "#e4e2e1",
+                                "on-tertiary-fixed": "#1b1c1b",
+                                "surface-tint": "#adc6ff",
+                                "secondary-container": "#6e3d0d",
+                                "tertiary-container": "#c8c6c5",
+                                "on-error-container": "#ffdad6",
+                                "on-primary-container": "#004fa9",
+                                "tertiary-fixed-dim": "#c8c6c5",
+                                "on-surface-variant": "#c4c6d0",
+                                "on-secondary-fixed": "#2f1500",
+                                "primary-fixed": "#d8e2ff",
+                                "surface-container-lowest": "#0d0e11",
+                                "on-primary-fixed": "#001a41",
+                                "secondary-fixed-dim": "#ffb77d",
+                                "outline": "#8e909a",
+                                "on-tertiary-container": "#535252",
+                                "surface-variant": "#343538",
+                                "inverse-on-surface": "#2f3034",
+                                "secondary": "#ffb77d",
+                                "surface-container-highest": "#343538",
+                                "surface-container-low": "#1a1b1f",
+                                "cyber-orange": "#FF8C00",
+                                "surface-bright": "#38393d",
+                                "electric-blue": "#007AFF",
+                                "surface": "#121317",
+                                "on-tertiary-fixed-variant": "#474746",
+                                "text-muted": "#888888",
+                                "inverse-surface": "#e3e2e7",
+                                "on-tertiary": "#303030",
+                                "outline-variant": "#44474f",
+                                "surface-main": "#0A0A0B"
+                        },
+                        "borderRadius": {
+                                "DEFAULT": "0.125rem",
+                                "lg": "0.25rem",
+                                "xl": "0.5rem",
+                                "full": "0.75rem"
+                        },
+                        "spacing": {
+                                "stack-sm": "0.5rem",
+                                "stack-md": "1.5rem",
+                                "stack-lg": "3rem",
+                                "margin-page": "5vw",
+                                "gutter-grid": "2rem",
+                                "section-gap": "8rem"
+                        },
+                        "fontFamily": {
+                                "headline-xl": ["Geist", "Inter", "sans-serif"],
+                                "headline-md": ["Geist", "Inter", "sans-serif"],
+                                "label-md": ["Geist", "Inter", "sans-serif"],
+                                "body-lg": ["Inter", "sans-serif"],
+                                "label-sm": ["Geist", "Inter", "sans-serif"],
+                                "headline-lg": ["Geist", "Inter", "sans-serif"],
+                                "headline-xl-mobile": ["Geist", "Inter", "sans-serif"],
+                                "body-md": ["Inter", "sans-serif"]
+                        },
+                        "fontSize": {
+                                "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                                "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                                "label-md": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                                "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "600"}],
+                                "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                                "headline-xl-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                                "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                        }
+                        },
+                    },
+                    }
+                </script>
+    </head>
+    <body class="bg-surface-main text-on-surface selection:bg-electric-blue/30 overflow-x-hidden">
+        <!-- TopNavBar -->
+        <div class="fixed top-4 left-0 right-0 z-50 px-margin-page flex justify-center">
+        <nav class="w-full max-w-7xl backdrop-blur-md border border-surface-border rounded-full flex justify-between items-center px-8 py-3 shadow-lg bg-surface-main/80">
+        <!-- Identity (Left) -->
+        <div class="flex flex-col">
+        <span class="font-headline-md text-headline-md font-bold text-on-surface tracking-tighter leading-none mb-2">Joel Luis dos Santos</span>
+        <span class="font-label-sm text-label-sm text-text-muted leading-none">👨‍💻 Tech Enthusiast | 🎓Computer Science & Engineering Student🚀</span>
+        </div>
+        <!-- Navigation Links (Center) - Hidden on Mobile -->
+        <div class="hidden md:flex gap-8 items-center">
+        <a class="font-label-sm text-label-sm text-text-muted hover:text-electric-blue transition-colors" href="#">Home</a>
+        <a class="font-label-sm text-label-sm text-electric-blue hover:text-electric-blue transition-colors relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-electric-blue" href="#">Projects</a>
+        <a class="font-label-sm text-label-sm text-text-muted hover:text-electric-blue transition-colors" href="#">Blog</a>
+        <a class="font-label-sm text-label-sm text-text-muted hover:text-electric-blue transition-colors" href="#">Contact</a>
+        </div>
+        <!-- Actions (Right) -->
+        <div class="flex items-center gap-6">
+        <!-- Language Toggle -->
+        <div class="hidden md:flex items-center bg-surface-container-high rounded-full p-1 border border-surface-border">
+        <button class="px-3 py-1 rounded-full bg-electric-blue text-white font-label-sm text-label-sm shadow-sm">EN</button>
+        <button class="px-3 py-1 rounded-full text-text-muted hover:text-on-surface font-label-sm text-label-sm transition-colors">PT</button>
+        </div>
+        <!-- Download CV -->
+        <button class="hidden md:flex bg-electric-blue text-white px-5 py-2.5 font-label-sm text-label-sm rounded-full active:opacity-80 active:scale-95 hover:bg-electric-blue/90 transition-all items-center gap-2">
+                        Download CV
+        </button>
+        <!-- Mobile Menu Trigger -->
+        <button class="md:hidden material-symbols-outlined text-on-surface" data-icon="menu">menu</button>
+        </div>
+        </nav>
+        </div>
+        <!-- End TopNavBar -->
+        <!-- Main -->
+        <main class="pt-32 pb-section-gap relative overflow-hidden">
+        <!-- Subtle Background Grid -->
+        <div class="absolute inset-0 grid-pattern opacity-20 pointer-events-none"></div>
+        <!-- Hero Section -->
+        <section class="px-margin-page mb-section-gap relative z-10">
+        <div class="max-w-4xl">
+        <div class="flex items-center gap-3 mb-stack-sm">
+        <div class="w-8 h-[1px] bg-electric-blue"></div>
+        <span class="font-label-sm text-label-sm text-electric-blue uppercase tracking-widest">Repository</span>
+        </div>
+        <h1 class="font-headline-xl text-headline-xl mb-4 text-on-surface">System // Projects</h1>
+        <p class="font-body-lg text-body-lg text-text-muted max-w-2xl">Here you'll find all the projects I've worked on, whether in a professional, academic, or personal context. </p>
+        </div>
+        </section>
+        <!-- Professional Solutions Section 
+        <section class="px-margin-page mb-section-gap relative z-10">
+        <div class="flex items-baseline justify-between mb-stack-lg border-b border-surface-border pb-4">
+        <h2 class="font-headline-lg text-headline-lg text-on-surface">01 | Professional Projects</h2>
+        <span class="font-label-sm text-label-sm text-text-muted">COMMERCIAL / PRODUCTION READY</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+         NeuralMesh Card 
+        <div class="group bg-surface-card border border-surface-border p-8 transition-all duration-300 glow-hover relative overflow-hidden">
+        <div class="flex justify-between items-start mb-stack-md">
+        <div class="flex items-center gap-4">
+        <div>
+        <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-electric-blue transition-colors">NeuralMesh Engine</h3>
+        <p class="font-label-sm text-label-sm text-text-muted">High-Performance Graphics System</p>
+        </div>
+        </div>
+        <div class="flex items-center gap-2 px-3 py-1 bg-cyber-orange/10 border border-cyber-orange/20 rounded-full cyber-status-glow">
+        <span class="w-1.5 h-1.5 bg-cyber-orange rounded-full animate-pulse"></span>
+        <span class="font-label-sm text-label-sm text-cyber-orange">v2.4 STABLE</span>
+        </div>
+        </div>
+        <p class="text-text-muted mb-stack-md leading-relaxed">
+                                A low-level C++ rendering engine architected for Vulkan API. Featuring real-time ray-tracing support, dynamic memory management, and high-density geometry pipelines for scientific visualization.
+                            </p>
+        <div class="flex flex-wrap gap-2 mb-stack-lg">
+        <span class="flex items-center gap-1.5 px-3 py-1 bg-surface-container border border-surface-border font-label-sm text-label-sm text-on-surface">
+        <span class="material-symbols-outlined text-sm" data-icon="developer_board" style="font-size: 16px;">developer_board</span> C++20
+                                </span>
+        <span class="flex items-center gap-1.5 px-3 py-1 bg-surface-container border border-surface-border font-label-sm text-label-sm text-on-surface">
+        <span class="material-symbols-outlined text-sm" data-icon="vulkan" style="font-size: 16px;">lan</span> Vulkan
+                                </span>
+        <span class="flex items-center gap-1.5 px-3 py-1 bg-surface-container border border-surface-border font-label-sm text-label-sm text-on-surface">
+        <span class="material-symbols-outlined text-sm" data-icon="code_blocks" style="font-size: 16px;">code_blocks</span> GLSL
+                                </span>
+        </div>
+        <div class="flex">
+            <button class="flex-1 text-center py-5 border border-surface-border text-text-muted font-label-sm text-label-sm rounded-lg group-hover:border-electric-blue group-hover:text-electric-blue transition-all flex items-center justify-center gap-2">View Details <span class="material-symbols-outlined" style="font-size: 18px;">visibility</span></button>
+        </div>
+        </div>
+        <div class="group bg-surface-card border border-surface-border p-8 transition-all duration-300 glow-hover relative overflow-hidden">
+        <div class="flex justify-between items-start mb-stack-md">
+        <div class="flex items-center gap-4">
+        <div>
+        <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-electric-blue transition-colors">NeuralMesh Engine</h3>
+        <p class="font-label-sm text-label-sm text-text-muted">High-Performance Graphics System</p>
+        </div>
+        </div>
+        <div class="flex items-center gap-2 px-3 py-1 bg-cyber-orange/10 border border-cyber-orange/20 rounded-full cyber-status-glow">
+        <span class="w-1.5 h-1.5 bg-cyber-orange rounded-full animate-pulse"></span>
+        <span class="font-label-sm text-label-sm text-cyber-orange">v2.4 STABLE</span>
+        </div>
+        </div>
+        <p class="text-text-muted mb-stack-md leading-relaxed">
+                                A low-level C++ rendering engine architected for Vulkan API. Featuring real-time ray-tracing support, dynamic memory management, and high-density geometry pipelines for scientific visualization.
+                            </p>
+        <div class="flex flex-wrap gap-2 mb-stack-lg">
+        <span class="flex items-center gap-1.5 px-3 py-1 bg-surface-container border border-surface-border font-label-sm text-label-sm text-on-surface">
+        <span class="material-symbols-outlined text-sm" data-icon="developer_board" style="font-size: 16px;">developer_board</span> C++20
+                                </span>
+        <span class="flex items-center gap-1.5 px-3 py-1 bg-surface-container border border-surface-border font-label-sm text-label-sm text-on-surface">
+        <span class="material-symbols-outlined text-sm" data-icon="vulkan" style="font-size: 16px;">lan</span> Vulkan
+                                </span>
+        <span class="flex items-center gap-1.5 px-3 py-1 bg-surface-container border border-surface-border font-label-sm text-label-sm text-on-surface">
+        <span class="material-symbols-outlined text-sm" data-icon="code_blocks" style="font-size: 16px;">code_blocks</span> GLSL
+                                </span>
+        </div>
+        <div class="flex">
+            <button class="flex-1 text-center py-5 border border-surface-border text-text-muted font-label-sm text-label-sm rounded-lg group-hover:border-electric-blue group-hover:text-electric-blue transition-all flex items-center justify-center gap-2">View Details <span class="material-symbols-outlined" style="font-size: 18px;">visibility</span></button>
+        </div>
+        </div>
+        </div>
+        </section>-->
+        <!-- Academic Section -->
+        <section class="px-margin-page relative z-10">
+        <div class="flex items-baseline justify-between mb-stack-lg border-b border-surface-border pb-4">
+        <h2 class="font-headline-lg text-headline-lg text-on-surface">Academic &amp; Personal Projects</h2>
+        <span class="font-label-sm text-label-sm text-text-muted">RESEARCH &amp; DEVELOPMENT</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="group bg-surface-card border border-surface-border p-8 transition-all duration-300 glow-hover relative overflow-hidden">
+        <div class="flex justify-between items-start mb-stack-md">
+        <div class="flex items-center gap-4">
+        <div>
+        <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-electric-blue transition-colors">NeuralMesh Engine</h3>
+        <p class="font-label-sm text-label-sm text-text-muted">High-Performance Graphics System</p>
+        </div>
+        </div>
+        <div class="flex items-center gap-2 px-3 py-1 bg-cyber-orange/10 border border-cyber-orange/20 rounded-full cyber-status-glow">
+        <span class="w-1.5 h-1.5 bg-cyber-orange rounded-full animate-pulse"></span>
+        <span class="font-label-sm text-label-sm text-cyber-orange">v2.4 STABLE</span>
+        </div>
+        </div>
+        <p class="text-text-muted mb-stack-md leading-relaxed">
+                                A low-level C++ rendering engine architected for Vulkan API. Featuring real-time ray-tracing support, dynamic memory management, and high-density geometry pipelines for scientific visualization.
+                            </p>
+        <div class="flex flex-wrap gap-2 mb-stack-lg">
+        <span class="flex items-center gap-1.5 px-3 py-1 bg-surface-container border border-surface-border font-label-sm text-label-sm text-on-surface">
+        <span class="material-symbols-outlined text-sm" data-icon="developer_board" style="font-size: 16px;">developer_board</span> C++20
+                                </span>
+        <span class="flex items-center gap-1.5 px-3 py-1 bg-surface-container border border-surface-border font-label-sm text-label-sm text-on-surface">
+        <span class="material-symbols-outlined text-sm" data-icon="vulkan" style="font-size: 16px;">lan</span> Vulkan
+                                </span>
+        <span class="flex items-center gap-1.5 px-3 py-1 bg-surface-container border border-surface-border font-label-sm text-label-sm text-on-surface">
+        <span class="material-symbols-outlined text-sm" data-icon="code_blocks" style="font-size: 16px;">code_blocks</span> GLSL
+                                </span>
+        </div>
+        <div class="flex">
+            <button class="flex-1 text-center py-5 border border-surface-border text-text-muted font-label-sm text-label-sm rounded-lg group-hover:border-electric-blue group-hover:text-electric-blue transition-all flex items-center justify-center gap-2">View Details <span class="material-symbols-outlined" style="font-size: 18px;">visibility</span></button>
+        </div>
+        </div>
+        <div class="group bg-surface-card border border-surface-border p-8 transition-all duration-300 glow-hover relative overflow-hidden">
+        <div class="flex justify-between items-start mb-stack-md">
+        <div class="flex items-center gap-4">
+        <div>
+        <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-electric-blue transition-colors">NeuralMesh Engine</h3>
+        <p class="font-label-sm text-label-sm text-text-muted">High-Performance Graphics System</p>
+        </div>
+        </div>
+        <div class="flex items-center gap-2 px-3 py-1 bg-cyber-orange/10 border border-cyber-orange/20 rounded-full cyber-status-glow">
+        <span class="w-1.5 h-1.5 bg-cyber-orange rounded-full animate-pulse"></span>
+        <span class="font-label-sm text-label-sm text-cyber-orange">v2.4 STABLE</span>
+        </div>
+        </div>
+        <p class="text-text-muted mb-stack-md leading-relaxed">
+                                A low-level C++ rendering engine architected for Vulkan API. Featuring real-time ray-tracing support, dynamic memory management, and high-density geometry pipelines for scientific visualization.
+                            </p>
+        <div class="flex flex-wrap gap-2 mb-stack-lg">
+        <span class="flex items-center gap-1.5 px-3 py-1 bg-surface-container border border-surface-border font-label-sm text-label-sm text-on-surface">
+        <span class="material-symbols-outlined text-sm" data-icon="developer_board" style="font-size: 16px;">developer_board</span> C++20
+                                </span>
+        <span class="flex items-center gap-1.5 px-3 py-1 bg-surface-container border border-surface-border font-label-sm text-label-sm text-on-surface">
+        <span class="material-symbols-outlined text-sm" data-icon="vulkan" style="font-size: 16px;">lan</span> Vulkan
+                                </span>
+        <span class="flex items-center gap-1.5 px-3 py-1 bg-surface-container border border-surface-border font-label-sm text-label-sm text-on-surface">
+        <span class="material-symbols-outlined text-sm" data-icon="code_blocks" style="font-size: 16px;">code_blocks</span> GLSL
+                                </span>
+        </div>
+        <div class="flex">
+            <button class="flex-1 text-center py-5 border border-surface-border text-text-muted font-label-sm text-label-sm rounded-lg group-hover:border-electric-blue group-hover:text-electric-blue transition-all flex items-center justify-center gap-2">View Details <span class="material-symbols-outlined" style="font-size: 18px;">visibility</span></button>
+        </div>
+        </div>
+            <div class="group bg-surface-card border border-surface-border p-8 transition-all duration-300 glow-hover relative overflow-hidden">
+        <div class="flex justify-between items-start mb-stack-md">
+        <div class="flex items-center gap-4">
+        <div>
+        <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-electric-blue transition-colors">NeuralMesh Engine</h3>
+        <p class="font-label-sm text-label-sm text-text-muted">High-Performance Graphics System</p>
+        </div>
+        </div>
+        <div class="flex items-center gap-2 px-3 py-1 bg-cyber-orange/10 border border-cyber-orange/20 rounded-full cyber-status-glow">
+        <span class="w-1.5 h-1.5 bg-cyber-orange rounded-full animate-pulse"></span>
+        <span class="font-label-sm text-label-sm text-cyber-orange">v2.4 STABLE</span>
+        </div>
+        </div>
+        <p class="text-text-muted mb-stack-md leading-relaxed">
+                                A low-level C++ rendering engine architected for Vulkan API. Featuring real-time ray-tracing support, dynamic memory management, and high-density geometry pipelines for scientific visualization.
+                            </p>
+        <div class="flex flex-wrap gap-2 mb-stack-lg">
+        <span class="flex items-center gap-1.5 px-3 py-1 bg-surface-container border border-surface-border font-label-sm text-label-sm text-on-surface">
+        <span class="material-symbols-outlined text-sm" data-icon="developer_board" style="font-size: 16px;">developer_board</span> C++20
+                                </span>
+        <span class="flex items-center gap-1.5 px-3 py-1 bg-surface-container border border-surface-border font-label-sm text-label-sm text-on-surface">
+        <span class="material-symbols-outlined text-sm" data-icon="vulkan" style="font-size: 16px;">lan</span> Vulkan
+                                </span>
+        <span class="flex items-center gap-1.5 px-3 py-1 bg-surface-container border border-surface-border font-label-sm text-label-sm text-on-surface">
+        <span class="material-symbols-outlined text-sm" data-icon="code_blocks" style="font-size: 16px;">code_blocks</span> GLSL
+                                </span>
+        </div>
+        <div class="flex">
+            <button class="flex-1 text-center py-5 border border-surface-border text-text-muted font-label-sm text-label-sm rounded-lg group-hover:border-electric-blue group-hover:text-electric-blue transition-all flex items-center justify-center gap-2">View Details <span class="material-symbols-outlined" style="font-size: 18px;">visibility</span></button>
+        </div>
+        </div>
+        </div>
+        </section>
+        <!-- CTA Section -->
+        <section class="px-margin-page py-section-gap">
+        <div class="bg-surface-container border border-surface-border rounded-lg p-12 text-center relative overflow-hidden">
+        <h2 class="font-headline-lg text-headline-lg text-on-surface mb-6">Do you need to contact me?</h2>
+        <p class="max-w-2xl mx-auto font-body-lg text-body-lg text-text-muted mb-10">
+                            I'm open to junior-level development projects in web, mobile, and technical support. Let's talk.
+                        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <button class="bg-cyber-orange text-on-secondary-fixed px-10 py-4 rounded font-label-md text-label-md font-bold hover:scale-105 transition-all flex items-center gap-2 justify-center">
+                                Start a Conversation <span class="material-symbols-outlined">arrow_forward</span>
+        </button>
+        </div>
+        <!-- Subtle glow effect -->
+        <div class="absolute -z-10 bottom-0 right-0 w-64 h-64 bg-cyber-orange/10 blur-[100px] rounded-full"></div>
+        <div class="absolute -z-10 top-0 left-0 w-64 h-64 bg-electric-blue/10 blur-[100px] rounded-full"></div>
+        </div>
+        </section>
+        </main>     
+        <!-- End Main -->
+        <!-- Footer -->
+        <footer class="border-t border-surface-border bg-surface-container-lowest flex flex-col md:flex-row justify-between items-center px-margin-page py-stack-lg w-full gap-8">
+        <div class="font-headline-md text-headline-md font-bold text-on-surface">
+                    Joel Luis dos Santos
+                </div>
+        <div class="text-text-muted font-label-sm text-label-sm text-center md:text-left">
+                    © 2026 👨‍💻 Tech Enthusiast | 🎓Computer Science & Engineering Student🚀
+                </div>
+        <div class="flex gap-8">
+        <a class="font-label-sm text-label-sm text-text-muted hover:text-cyber-orange underline transition-all hover:translate-x-1" href="https://linkedin.com/in/joel-luís-dos-santos-0ba20b286">LinkedIn</a>
+        <a class="font-label-sm text-label-sm text-text-muted hover:text-cyber-orange underline transition-all hover:translate-x-1" href="https://github.com/Dossantosjoel7">GitHub</a>
+        <a class="font-label-sm text-label-sm text-text-muted hover:text-cyber-orange underline transition-all hover:translate-x-1" href="https://dinq.me/dossantosjoel7">Dinq.me</a>
+        </div>
+        </footer>
+        <!-- End Footer -->
+        <script>
+                // Micro-interactions and simple logic
+                document.addEventListener('DOMContentLoaded', () => {
+                    // Smooth parallax-ish entry
+                    const observerOptions = {
+                        threshold: 0.1
+                    };
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('opacity-100', 'translate-y-0');
+                                entry.target.classList.remove('opacity-0', 'translate-y-10');
+                            }
+                        });
+                    }, observerOptions);
+
+                    document.querySelectorAll('section').forEach(section => {
+                        section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+                        observer.observe(section);
+                    });
+                });
+            </script>
+    </body>
+</html>
+

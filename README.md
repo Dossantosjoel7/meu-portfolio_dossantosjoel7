@@ -61,3 +61,14 @@ Check out [our documentation](https://docs.astro.build) or jump into our [Discor
 ## Credit
 
 This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+
+## Tecnicas usadas durante desevolvimento de software ->
+    
+### Na leitura por IA (Agentes, LLMs e scrapers) e na otimização para motores de busca (SEO)
+        -Dados Estruturados (JSON-LD)
+        -HTML Semântico
+        -Meta Tags e Open Graph (LinkedIn)
+        -Sitemaps e Robots.txt (Navegação Automática)
+        -Textos Alternativos (Alt Text) em Imagens 
+
+

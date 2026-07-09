@@ -1,0 +1,46 @@
+---
+// src/layouts/BaseLayout.astro
+const { title, description } = Astro.props;
+
+// O "Bilhete de Identidade" para IAs e Scrapers (JSON-LD)
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Joel Luis dos Santos",
+  "jobTitle": "IT Support Technician & Software Engineer & Tech Enthusiast",
+  "url": "https://teunome.dev",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Coimbra",
+    "addressCountry": "PT"
+  },
+  "sameAs": [
+    "https://github.com/Dossantosjoel7",
+    "https://linkedin.com/in/joel-luís-dos-santos-0ba20b286",
+    "https://dinq.me/dossantosjoel7"
+  ]
+};
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://teunome.dev/capa-portfolio.jpg" />
+    <meta property="og:url" content="https://teunome.dev" />
+    
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+  </head>
+  
+  <body class="bg-slate-900 text-slate-100">
+    <main>
+      <slot />
+    </main>
+
+    </body>
+</html>
