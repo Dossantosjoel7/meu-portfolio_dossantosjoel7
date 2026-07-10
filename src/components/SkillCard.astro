@@ -1,0 +1,23 @@
+---
+// src/components/SkillCard.astro
+
+// Definimos as propriedades que o cartão vai receber
+const { title, titleColor = "blue", skills = [""] } = Astro.props;
+
+// Lógica para alternar a cor do título com base no teu design
+const colorClass = titleColor === "orange" ? "text-cyber-orange" : "text-electric-blue";
+---
+
+<div class="bg-surface-container border border-surface-border p-6 rounded-lg hover-glow transition-all">
+  <h3 class={`font-label-md text-label-md uppercase tracking-widest mb-4 ${colorClass}`}>
+    {title}
+  </h3>
+  <div class="flex flex-wrap gap-2">
+    <!-- O Astro vai percorrer a lista de skills e gerar um "crachá" para cada uma -->
+    {skills.map((skill: string) => (
+      <span class="px-3 py-1 bg-surface-container-high border border-surface-border rounded-full text-xs font-label-sm text-on-surface">
+        {skill}
+      </span>
+    ))}
+  </div>
+</div>

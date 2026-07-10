@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Project Details | AI Education Agents</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --electric-blue: #007AFF;
+            --cyber-orange: #FF8C00;
+        }
+        body {
+            background-color: #0A0A0B;
+            color: #e3e2e7;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background-color: rgba(18, 19, 23, 0.85);
+            border: 1px solid #222222;
+        }
+        .tech-badge {
+            background-color: #1A1A1A;
+            border: 1px solid #222222;
+            transition: all 0.3s ease;
+        }
+        .tech-badge:hover {
+            border-color: var(--electric-blue);
+            box-shadow: 0 0 10px rgba(0, 122, 255, 0.2);
+        }
+        .metric-card {
+            background-color: #111111;
+            border-left: 2px solid var(--electric-blue);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .btn-glow-blue:hover {
+            box-shadow: 0 0 15px rgba(0, 122, 255, 0.4);
+        }
+        .btn-glow-orange:hover {
+            box-shadow: 0 0 15px rgba(255, 140, 0, 0.4);
+        }
+        /* Custom scrollbar for IDE feel */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0B;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #444;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#acc6ff",
+                    "surface-container": "#1e1f23",
+                    "secondary-fixed": "#ffdcc3",
+                    "on-primary": "#002e69",
+                    "on-secondary": "#4d2600",
+                    "surface-container-high": "#292a2d",
+                    "on-surface": "#e3e2e7",
+                    "surface-border": "#222222",
+                    "on-secondary-fixed-variant": "#6b3b0a",
+                    "primary-fixed-dim": "#adc6ff",
+                    "on-background": "#e3e2e7",
+                    "tertiary-fixed": "#e4e2e1",
+                    "inverse-primary": "#005bc1",
+                    "on-secondary-container": "#efa971",
+                    "surface-dim": "#121317",
+                    "on-error": "#690005",
+                    "primary": "#d7e2ff",
+                    "surface-card": "#111111",
+                    "error": "#ffb4ab",
+                    "background": "#121317",
+                    "error-container": "#93000a",
+                    "on-primary-fixed-variant": "#004493",
+                    "tertiary": "#e4e2e1",
+                    "on-tertiary-fixed": "#1b1c1b",
+                    "surface-tint": "#adc6ff",
+                    "secondary-container": "#6e3d0d",
+                    "tertiary-container": "#c8c6c5",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-container": "#004fa9",
+                    "tertiary-fixed-dim": "#c8c6c5",
+                    "on-surface-variant": "#c4c6d0",
+                    "on-secondary-fixed": "#2f1500",
+                    "primary-fixed": "#d8e2ff",
+                    "surface-container-lowest": "#0d0e11",
+                    "on-primary-fixed": "#001a41",
+                    "secondary-fixed-dim": "#ffb77d",
+                    "outline": "#8e909a",
+                    "on-tertiary-container": "#535252",
+                    "surface-variant": "#343538",
+                    "inverse-on-surface": "#2f3034",
+                    "secondary": "#ffb77d",
+                    "surface-container-highest": "#343538",
+                    "surface-container-low": "#1a1b1f",
+                    "cyber-orange": "#FF8C00",
+                    "surface-bright": "#38393d",
+                    "electric-blue": "#007AFF",
+                    "surface": "#121317",
+                    "on-tertiary-fixed-variant": "#474746",
+                    "text-muted": "#888888",
+                    "inverse-surface": "#e3e2e7",
+                    "on-tertiary": "#303030",
+                    "outline-variant": "#44474f",
+                    "surface-main": "#0A0A0B"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "stack-sm": "0.5rem",
+                    "stack-md": "1.5rem",
+                    "stack-lg": "3rem",
+                    "margin-page": "5vw",
+                    "gutter-grid": "2rem",
+                    "section-gap": "8rem"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Geist"],
+                    "headline-md": ["Geist"],
+                    "label-md": ["Geist"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Geist"],
+                    "headline-lg": ["Geist"],
+                    "headline-xl-mobile": ["Geist"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-xl-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4 overflow-hidden">
+<!-- Blurred Background Simulation -->
+<div class="fixed inset-0 -z-10 opacity-40">
+
+</div>
+<!-- Main Modal Component -->
+<main class="glass-panel w-full max-w-5xl max-h-[921px] flex flex-col rounded-lg shadow-2xl relative overflow-hidden transition-all duration-500 scale-100 opacity-100">
+<!-- Header Zone -->
+<header class="flex items-center justify-between px-6 py-4 border-b border-surface-border bg-surface-main/50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-electric-blue" data-icon="school">school</span>
+<h1 class="font-headline-md text-headline-md text-electric-blue tracking-tight">AI Education Agents</h1>
+</div>
+<button class="text-text-muted hover:text-on-surface transition-colors p-1 rounded-lg hover:bg-surface-variant" onclick="this.closest('main').classList.add('scale-95', 'opacity-0');">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</header>
+<!-- Content Area (Scrollable) -->
+<div class="flex-1 overflow-y-auto custom-scrollbar">
+<!-- Media Zone (Switcher) -->
+<section class="p-6">
+<div class="relative group bg-surface-container-lowest rounded-lg border border-surface-border overflow-hidden aspect-video">
+<img class="w-full h-full object-cover" data-alt="A high-fidelity technical UI screenshot of an AI education dashboard, featuring clean code blocks, chat interfaces with autonomous agents, and real-time knowledge graphs. The aesthetic is strictly minimalist dark mode with deep charcoal backgrounds and electric blue data visualizations. Soft atmospheric lighting glows from the edges of the interface, highlighting complex neural network diagrams and Python syntax highlighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAC6DQxgko0ynNvtXjsdRPw1VUwwO-Yqa0OwuTn9kx8gTvuy4kA1MifNwaBKUIckyFdJfF8uVTIRFZUtUwQxzEC1TpDXeeG1hmLr2WHMJx5bwN6bO7hJAD9srR8ieHgd9XhPgH2z3iXxXCzJ02SMix5whHjUUK8SPpNm9m2TL3eb1fhsJatKVGB1NdcOgS8VO3eG7dT1PwYkoZ_XM0uEBMKBXe6tKDlbVMQSC-dcs41_BZk6PPYho"/>
+<!-- Media Controls Overlay -->
+<div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 p-1 bg-surface-main/80 backdrop-blur-md rounded-lg border border-surface-border">
+<button class="px-3 py-1 flex items-center gap-2 text-label-sm font-label-sm text-on-surface bg-surface-variant rounded-lg">
+<span class="material-symbols-outlined text-[16px]" data-icon="image">image</span> Screenshot
+                        </button>
+<button class="px-3 py-1 flex items-center gap-2 text-label-sm font-label-sm text-text-muted hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="play_circle">play_circle</span> Demo Video
+                        </button>
+</div>
+</div>
+</section>
+<!-- Info Zone -->
+<div class="px-6 pb-12 grid grid-cols-1 lg:grid-cols-12 gap-gutter-grid">
+<!-- Primary Column -->
+<div class="lg:col-span-8 space-y-stack-lg">
+<!-- Overview -->
+<article>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-stack-sm flex items-center gap-2">
+<span class="text-electric-blue">01</span> Project Overview
+                        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                            A suite of autonomous multi-agent systems designed to revolutionize personalized learning. Leveraging large language models to act as specialized tutors, researchers, and assessment coordinators, creating a seamless end-to-end educational journey for students in computer science.
+                        </p>
+</article>
+<!-- Challenge & Solution -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<div class="p-5 border border-surface-border rounded-lg bg-surface-container-low">
+<h3 class="text-error font-label-sm text-label-sm uppercase tracking-widest mb-3">The Challenge</h3>
+<p class="font-body-md text-body-md text-text-muted">Standard AI chatbots lack pedagogical context and memory, leading to disjointed learning experiences and factual hallucinations in technical topics.</p>
+</div>
+<div class="p-5 border border-surface-border rounded-lg bg-surface-container-low">
+<h3 class="text-electric-blue font-label-sm text-label-sm uppercase tracking-widest mb-3">The Solution</h3>
+<p class="font-body-md text-body-md text-text-muted">An orchestrated agent architecture using RAG (Retrieval-Augmented Generation) to ground tutoring sessions in verified academic datasets.</p>
+</div>
+</div>
+<!-- Tech Stack Badges -->
+<article>
+<h2 class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest mb-stack-sm">Technical Implementation</h2>
+<div class="flex flex-wrap gap-2">
+<span class="tech-badge px-4 py-2 flex items-center gap-2 rounded-lg">
+<span class="material-symbols-outlined text-electric-blue text-[18px]" data-icon="terminal">terminal</span>
+<span class="font-label-md text-label-md">Python 3.11</span>
+</span>
+<span class="tech-badge px-4 py-2 flex items-center gap-2 rounded-lg">
+<span class="material-symbols-outlined text-electric-blue text-[18px]" data-icon="database">database</span>
+<span class="font-label-md text-label-md">Ollama</span>
+</span>
+<span class="tech-badge px-4 py-2 flex items-center gap-2 rounded-lg">
+<span class="material-symbols-outlined text-electric-blue text-[18px]" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Streamlit</span>
+</span>
+<span class="tech-badge px-4 py-2 flex items-center gap-2 rounded-lg">
+<span class="material-symbols-outlined text-electric-blue text-[18px]" data-icon="link">link</span>
+<span class="font-label-md text-label-md">LangChain</span>
+</span>
+</div>
+</article>
+</div>
+<!-- Secondary Column (Metrics) -->
+<aside class="lg:col-span-4 space-y-stack-md">
+<div class="p-6 glass-panel rounded-lg border-electric-blue/30 bg-electric-blue/5">
+<h3 class="font-label-sm text-label-sm text-electric-blue mb-4 uppercase tracking-widest">Performance Metrics</h3>
+<div class="space-y-4">
+<div class="metric-card p-4 rounded-lg">
+<div class="text-text-muted font-label-sm text-label-sm">Inference Latency</div>
+<div class="text-headline-md font-headline-md text-on-surface">&lt; 1.2s</div>
+</div>
+<div class="metric-card p-4 rounded-lg">
+<div class="text-text-muted font-label-sm text-label-sm">Knowledge Accuracy</div>
+<div class="text-headline-md font-headline-md text-on-surface">94.8%</div>
+</div>
+<div class="metric-card p-4 rounded-lg">
+<div class="text-text-muted font-label-sm text-label-sm">Concurrent Agents</div>
+<div class="text-headline-md font-headline-md text-on-surface">12+</div>
+</div>
+</div>
+</div>
+<div class="p-6 border border-surface-border rounded-lg">
+<h4 class="font-label-sm text-label-sm text-text-muted mb-2">Key Features</h4>
+<ul class="space-y-2">
+<li class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-electric-blue text-[16px]" data-icon="check_circle">check_circle</span>
+                                Semantic Memory
+                            </li>
+<li class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-electric-blue text-[16px]" data-icon="check_circle">check_circle</span>
+                                Auto-Grading Logic
+                            </li>
+<li class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-electric-blue text-[16px]" data-icon="check_circle">check_circle</span>
+                                PDF Context Injection
+                            </li>
+</ul>
+</div>
+</aside>
+</div>
+</div>
+<!-- Footer Actions -->
+<footer class="px-6 py-6 border-t border-surface-border bg-surface-main/80 flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex gap-4 w-full sm:w-auto">
+<a class="btn-glow-blue w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-electric-blue text-on-primary font-label-sm text-label-sm rounded-lg hover:opacity-90 transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+                    View Code on GitHub
+                </a>
+<a class="btn-glow-orange w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 border border-cyber-orange text-cyber-orange font-label-sm text-label-sm rounded-lg hover:bg-cyber-orange/10 transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span>
+                    Live Demo
+                </a>
+</div>
+<div class="flex items-center gap-2 text-text-muted">
+<span class="text-label-sm font-label-sm">Project status:</span>
+<span class="flex items-center gap-1.5 px-2 py-0.5 bg-green-500/10 text-green-400 rounded text-[10px] uppercase font-bold tracking-tighter">
+<span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
+                    Production Ready
+                </span>
+</div>
+</footer>
+</main>
+<script>
+        // Simple micro-interaction for the close button and modal entrance
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.querySelector('main');
+            modal.style.opacity = '0';
+            modal.style.transform = 'scale(0.95) translateY(20px)';
+            
+            setTimeout(() => {
+                modal.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+                modal.style.opacity = '1';
+                modal.style.transform = 'scale(1) translateY(0)';
+            }, 100);
+        });
+    </script>
+</body></html>

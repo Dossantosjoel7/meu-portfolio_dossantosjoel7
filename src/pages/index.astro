@@ -1,49 +1,190 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+// src/pages/index.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SkillCard from '../components/SkillCard.astro';
+import ExperienceCard from '../components/ExperienceCard.astro';
+
+const title = "Joel Luis dos Santos | Portfolio";
+const description = "Computer Science & Engineering Student & Tech Enthusiast focusing on Software Engineering, IT Support, and innovative tech solutions.";
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+<BaseLayout title={title} description={description} lang="en">
+  
+  <!-- Hero Section -->
+  <section class="min-h-[819px] flex flex-col md:flex-row items-center px-margin-page py-stack-lg gap-gutter-grid transition-all duration-1000 opacity-100 translate-y-0">
+    <!-- Left Side: Identity -->
+    <div class="w-full md:w-1/2 flex flex-col gap-stack-md">
+      <div class="space-y-2">
+        <h1 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface">
+          Hi, I am <span class="text-on-surface">Joel</span>
+        </h1>
+        <div class="flex flex-col gap-1">
+          <span class="font-headline-lg text-headline-lg text-electric-blue">🎓Computer Science & Engineering Student🚀</span>
+          <span class="font-headline-lg text-headline-lg text-cyber-orange">& Tech Enthusiast👨‍💻</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-4 mt-4">
+        <a class="bg-electric-blue text-white flex items-center gap-2 px-8 py-4 font-label-md text-label-md rounded-lg glow-blue hover:scale-105 transition-all" href="#projects">
+          View Projects <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
+        <a class="border border-cyber-orange text-cyber-orange flex items-center gap-2 px-8 py-4 font-label-md text-label-md rounded-lg hover:bg-cyber-orange/10 transition-all" href="#contact">
+          Connect with me <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+    <!-- Right Side: Bio & Links -->
+    <div class="w-full md:w-1/2 flex flex-col justify-center gap-stack-md border-l border-surface-border md:pl-12">
+      <p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+        I am a technology enthusiast, guided by sound principles, a commitment to thoroughness in my work, and a strong desire to learn. My goal is to always seek out new challenges that will drive my personal and professional growth.
+      </p>
+      <p class="font-body-md text-body-md text-text-muted">
+        I am committed to joining projects where I can apply my technical knowledge and contribute real value.
+      </p>
+      <div class="flex items-center gap-8 pt-6">
+        <a class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface hover:text-electric-blue transition-colors" href="/curriculo.pdf" target="_blank">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">description</span>
+          Resume
+        </a>
+        <a class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface hover:text-electric-blue transition-colors" href="https://linkedin.com/in/joel-luís-dos-santos-0ba20b286">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">share</span>
+          LinkedIn
+        </a>
+        <a class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface hover:text-electric-blue transition-colors" href="https://github.com/Dossantosjoel7">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">code</span>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="px-margin-page" id="skills">
+    <div class="mb-16">
+      <h2 class="font-headline-lg text-headline-lg text-on-surface mb-2"> Skills & <span class="text-electric-blue">Technologies</span></h2>
+      <p class="font-body-md text-body-md text-text-muted">My technical toolkit across the software ecosystem.</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <SkillCard 
+        title="Front-End & Back-End Development" 
+        titleColor="blue"
+        skills={["HTML & CSS", "JavaScript", "Python", "C", "C++", "Tailwind", "React", "Astro", "Node.js", "PHP"]} 
+      />
+
+      <SkillCard 
+        title="Helpdesk / IT Support" 
+        titleColor="orange"
+        skills={["Virtualization"]} 
+      />
+
+      <SkillCard 
+        title="Software Engineering & Development Methodologies" 
+        titleColor="blue"
+        skills={["UML", "Requirements Analysis", "System Modeling", "Manual & Automated Testing"]} 
+      />
+
+      <SkillCard 
+        title="Databases, Storage & Cloud" 
+        titleColor="orange"
+        skills={["MySQL", "Oracle SQL"]} 
+      />
+
+      <SkillCard 
+        title="DevOps" 
+        titleColor="blue"
+        skills={["Docker"]} 
+      />
+
+      <SkillCard 
+        title="Tools" 
+        titleColor="orange"
+        skills={["Git", "GitHub", "VS Code", "StarUML", "Draw.io", "Google Antigravity"]} 
+      />
+
+      <SkillCard 
+        title="Others" 
+        titleColor="blue"
+        skills={["Blender"]} 
+      />
+
+    </div>
+  </section>
+
+<!-- Experience Section -->
+  <section class="px-margin-page py-section-gap" id="experience">
+    <div class="mb-16">
+      <h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Experience</h2>
+      <p class="font-body-md text-body-md text-text-muted">My professional journey so far.</p>
+    </div>
+    
+    <div class="relative border-l-2 border-surface-border ml-4 space-y-12 pl-10">
+      
+      <!-- 1. TW Twins Lda -->
+      <ExperienceCard 
+        role="IT-Assistant"
+        company="TW Twins Lda"
+        companyColor="orange"
+        date="Apr 2023 — Jun 2023"
+        location="Luanda, Angola · On-site"
+        type="School Internship"
+        dotColor="orange"
+        description={[
+          "- Performed hardware diagnostics and maintenance while simultaneously creating a comprehensive company inventory using MS Office 365, which optimized equipment management and reduced downtime.",
+          "- Configured virtual machines (Windows 8.1 and Linux Ubuntu) via Oracle VM VirtualBox, ensuring isolated and secure environments for software and operating system testing.",
+          "- Developed standardized technical documentation and conducted a SWOT analysis of the IT infrastructure, providing the organization with a clear overview of vulnerabilities and opportunities for technological improvement."
+        ]}
+        tags={["IT Support", "Virtualization", "Documentation", "Inventory", "SWOT Analysis"]}
+      />
+
+      <!-- 2. Sui Foundation
+      <ExperienceCard 
+        role="Consultant"
+        company="Sui Foundation"
+        companyColor="blue"
+        date="Apr 2025 — Oct 2025"
+        location="Cayman Islands · Remote"
+        type="Contract"
+        dotColor="gray"
+        description={[
+          "Played a crucial role in elevating web platforms. Focused on modernizing the UI/UX ecosystem, driving initiatives that improve user engagement and simplify development processes."
+        ]}
+        projects="SuiNS Governance"
+        tags={["Tailwind CSS", "React", "Sui"]}
+      />
+
+      3. Selenium 
+      <ExperienceCard 
+        role="Frontend Developer"
+        company="Selenium"
+        companyColor="orange"
+        date="Sep 2025 — Oct 2025"
+        location="Luanda, Angola · Hybrid"
+        type="Contract"
+        dotColor="gray"
+        projects="Viva Simulator"
+        tags={["React", "HTML5", "Next.js"]}
+      />-->
+
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="px-margin-page py-section-gap" id="contact">
+    <div class="bg-surface-container border border-surface-border rounded-lg p-12 text-center relative overflow-hidden">
+      <h2 class="font-headline-lg text-headline-lg text-on-surface mb-6">Do you need to contact me?</h2>
+      <p class="max-w-2xl mx-auto font-body-lg text-body-lg text-text-muted mb-10">
+        I'm open to junior-level development projects in web, mobile, and technical support. Let's talk.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="mailto:teu-email@exemplo.com" class="bg-cyber-orange text-on-secondary-fixed px-10 py-4 rounded font-label-md text-label-md font-bold hover:scale-105 transition-all flex items-center gap-2 justify-center">
+          Start a Conversation <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
+      </div>
+      <!-- Subtle glow effect -->
+      <div class="absolute -z-10 bottom-0 right-0 w-64 h-64 bg-cyber-orange/10 blur-[100px] rounded-full"></div>
+      <div class="absolute -z-10 top-0 left-0 w-64 h-64 bg-electric-blue/10 blur-[100px] rounded-full"></div>
+    </div>
+  </section>
+
+</BaseLayout>

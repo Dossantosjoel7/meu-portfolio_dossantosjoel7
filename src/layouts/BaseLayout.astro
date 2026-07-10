@@ -1,6 +1,11 @@
 ---
 // src/layouts/BaseLayout.astro
-const { title, description } = Astro.props;
+import '../styles/globals.css'; // O teu Tailwind e animações
+import Header from '../components/Header.astro'; // Importar Header
+import Footer from '../components/Footer.astro'; // Importar Footer
+
+// src/layouts/BaseLayout.astro
+const { title, description, lang = 'en' } = Astro.props;
 
 // O "Bilhete de Identidade" para IAs e Scrapers (JSON-LD)
 const personSchema = {
@@ -21,7 +26,7 @@ const personSchema = {
   ]
 };
 ---
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -33,14 +38,35 @@ const personSchema = {
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://teunome.dev/capa-portfolio.jpg" />
     <meta property="og:url" content="https://teunome.dev" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     
     <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
   </head>
   
-  <body class="bg-slate-900 text-slate-100">
-    <main>
+  <body class="bg-surface-main text-on-surface selection:bg-electric-blue/30 overflow-x-hidden">
+    <Header lang={lang} />
+    <main class="pt-32 hero-gradient">
       <slot />
     </main>
+    <Footer />
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+          const observerOptions = { threshold: 0.1 };
+          const observer = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                  if (entry.isIntersecting) {
+                      entry.target.classList.add('opacity-100', 'translate-y-0');
+                      entry.target.classList.remove('opacity-0', 'translate-y-10');
+                  }
+              });
+          }, observerOptions);
 
+          document.querySelectorAll('section').forEach(section => {
+              section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+              observer.observe(section);
+          });
+      });
+    </script>
     </body>
 </html>
