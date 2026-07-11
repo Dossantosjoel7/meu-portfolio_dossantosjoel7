@@ -1,0 +1,169 @@
+---
+// src/pages/pt/projects.astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import ProjectModal from '../../components/ProjectModal.astro';
+
+const title = "Joel Luis dos Santos | Projetos";
+const description = "Explore todos os projetos académicos, pessoais e profissionais desenvolvidos por Joel Luis dos Santos em engenharia de software, desenvolvimento web e TI.";
+---
+
+<BaseLayout title={title} description={description} lang="pt">
+
+  <!-- Secção Hero -->
+  <section class="px-margin-page mb-section-gap relative z-10">
+    <div class="max-w-4xl">
+      <div class="flex items-center gap-3 mb-stack-sm">
+        <div class="w-8 h-[1px] bg-electric-blue"></div>
+        <span class="font-label-sm text-label-sm text-electric-blue uppercase tracking-widest">Repositório</span>
+      </div>
+      <h1 class="font-headline-xl text-headline-xl mb-4 text-on-surface">Sistema // Projetos</h1>
+      <p class="font-body-lg text-body-lg text-text-muted max-w-2xl">Aqui encontras todos os projetos em que trabalhei, seja em contexto profissional, académico ou pessoal.</p>
+    </div>
+  </section>
+
+  <!-- Secção Projetos Académicos & Pessoais -->
+  <section class="px-margin-page relative z-10 mb-section-gap">
+    <div class="flex items-baseline justify-between mb-stack-lg border-b border-surface-border pb-4">
+      <h2 class="font-headline-lg text-headline-lg text-on-surface">Projetos Académicos & Pessoais</h2>
+      <span class="font-label-sm text-label-sm text-text-muted hidden md:inline">INVESTIGAÇÃO & DESENVOLVIMENTO</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <ProjectCard
+        projectId="ai-education"
+        title="Agentes IA Educacionais"
+        subtitle="Sistema Multi-Agente de Aprendizagem"
+        status="v1.0 ESTÁVEL"
+        description="Um conjunto de sistemas multi-agente autónomos concebidos para revolucionar a aprendizagem personalizada. Utiliza modelos de linguagem de grande escala como tutores especializados, investigadores e coordenadores de avaliação."
+        tags={[
+          { icon: "terminal", label: "Python 3.11" },
+          { icon: "database", label: "Ollama" },
+          { icon: "dashboard", label: "Streamlit" },
+        ]}
+        viewDetailsLabel="Ver Detalhes"
+      />
+
+      <ProjectCard
+        projectId="portfolio"
+        title="Portfólio Pessoal"
+        subtitle="Aplicação Web Full-Stack"
+        status="v2.0 ONLINE"
+        description="Um website de portfólio moderno e responsivo construído com Astro e Tailwind CSS v4. Com design dark mode, suporte multilingue (EN/PT) e micro-animações suaves."
+        tags={[
+          { icon: "code", label: "Astro" },
+          { icon: "palette", label: "Tailwind v4" },
+          { icon: "language", label: "TypeScript" },
+        ]}
+        viewDetailsLabel="Ver Detalhes"
+      />
+
+      <ProjectCard
+        projectId="inventory-sys"
+        title="Sistema de Inventário TI"
+        subtitle="Ferramenta de Gestão Empresarial"
+        status="v1.2 ESTÁVEL"
+        description="Um sistema abrangente de gestão de ativos TI desenvolvido durante o estágio na TW Twins Lda. Acompanha diagnósticos de hardware, calendários de manutenção e ciclo de vida de equipamentos."
+        tags={[
+          { icon: "storage", label: "MS Office 365" },
+          { icon: "monitor", label: "VirtualBox" },
+          { icon: "description", label: "Documentação" },
+        ]}
+        viewDetailsLabel="Ver Detalhes"
+      />
+
+    </div>
+  </section>
+
+  <!-- Secção CTA -->
+  <section class="px-margin-page py-section-gap">
+    <div class="bg-surface-container border border-surface-border rounded-lg p-12 text-center relative overflow-hidden">
+      <h2 class="font-headline-lg text-headline-lg text-on-surface mb-6">Precisas de me contactar?</h2>
+      <p class="max-w-2xl mx-auto font-body-lg text-body-lg text-text-muted mb-10">
+        Estou disponível para projetos de desenvolvimento de nível júnior em web, mobile e suporte técnico. Vamos conversar.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/pt/contact" class="bg-cyber-orange text-on-secondary-fixed px-10 py-4 rounded font-label-md text-label-md font-bold hover:scale-105 transition-all flex items-center gap-2 justify-center">
+          Iniciar uma Conversa <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
+      </div>
+      <!-- Efeito glow subtil -->
+      <div class="absolute -z-10 bottom-0 right-0 w-64 h-64 bg-cyber-orange/10 blur-[100px] rounded-full"></div>
+      <div class="absolute -z-10 top-0 left-0 w-64 h-64 bg-electric-blue/10 blur-[100px] rounded-full"></div>
+    </div>
+  </section>
+
+  <!-- Modal de Projeto -->
+  <ProjectModal lang="pt" />
+
+  <!-- Dados dos Projetos para o Modal -->
+  <script>
+    (window as any).__PROJECTS_DATA__ = {
+      "ai-education": {
+        title: "Agentes IA Educacionais",
+        icon: "school",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAAC6DQxgko0ynNvtXjsdRPw1VUwwO-Yqa0OwuTn9kx8gTvuy4kA1MifNwaBKUIckyFdJfF8uVTIRFZUtUwQxzEC1TpDXeeG1hmLr2WHMJx5bwN6bO7hJAD9srR8ieHgd9XhPgH2z3iXxXCzJ02SMix5whHjUUK8SPpNm9m2TL3eb1fhsJatKVGB1NdcOgS8VO3eG7dT1PwYkoZ_XM0uEBMKBXe6tKDlbVMQSC-dcs41_BZk6PPYho",
+        overview: "Um conjunto de sistemas multi-agente autónomos concebidos para revolucionar a aprendizagem personalizada. Utiliza modelos de linguagem de grande escala como tutores especializados, investigadores e coordenadores de avaliação, criando um percurso educacional completo para estudantes de ciências da computação.",
+        challenge: "Os chatbots IA padrão não possuem contexto pedagógico e memória, levando a experiências de aprendizagem desconexas e alucinações factuais em tópicos técnicos.",
+        solution: "Uma arquitetura de agentes orquestrada usando RAG (Retrieval-Augmented Generation) para fundamentar as sessões de tutoria em datasets académicos verificados.",
+        techStack: [
+          { icon: "terminal", label: "Python 3.11" },
+          { icon: "database", label: "Ollama" },
+          { icon: "dashboard", label: "Streamlit" },
+          { icon: "link", label: "LangChain" },
+        ],
+        metrics: [
+          { label: "Latência de Inferência", value: "< 1.2s" },
+          { label: "Precisão do Conhecimento", value: "94.8%" },
+          { label: "Agentes Concorrentes", value: "12+" },
+        ],
+        features: ["Memória Semântica", "Lógica de Auto-Avaliação", "Injeção de Contexto PDF"],
+        github: "https://github.com/Dossantosjoel7",
+        demo: "#",
+        statusText: "Pronto para Produção",
+      },
+      "portfolio": {
+        title: "Portfólio Pessoal",
+        icon: "web",
+        image: "",
+        overview: "Um website de portfólio moderno e responsivo construído com Astro e Tailwind CSS v4. Com um sistema de design premium em dark mode com efeitos de glassmorphism, suporte multilingue (EN/PT) e micro-animações suaves para uma experiência de utilizador envolvente.",
+        challenge: "Criar uma presença online profissional que se destaque, funcione perfeitamente em todos os dispositivos e suporte múltiplos idiomas sem duplicar toda a base de código.",
+        solution: "Utilizar a arquitetura de componentes do Astro para elementos de UI reutilizáveis e geração estática, combinada com o sistema de design tokens do Tailwind CSS v4 para uma linguagem de design consistente e escalável.",
+        techStack: [
+          { icon: "code", label: "Astro" },
+          { icon: "palette", label: "Tailwind v4" },
+          { icon: "language", label: "TypeScript" },
+          { icon: "dns", label: "Vercel" },
+        ],
+        metrics: [
+          { label: "Pontuação Lighthouse", value: "98+" },
+          { label: "Primeiro Render", value: "< 0.5s" },
+          { label: "Idiomas", value: "EN / PT" },
+        ],
+        features: ["Design Dark Mode", "Multilingue (i18n)", "Otimizado para SEO"],
+        github: "https://github.com/Dossantosjoel7",
+        demo: "#",
+        statusText: "Online",
+      },
+      "inventory-sys": {
+        title: "Sistema de Inventário TI",
+        icon: "inventory_2",
+        image: "",
+        overview: "Um sistema abrangente de gestão de ativos TI desenvolvido durante um estágio escolar na TW Twins Lda. O sistema acompanha diagnósticos de hardware, calendários de manutenção e ciclo de vida de equipamentos em toda a organização.",
+        challenge: "A empresa não tinha um sistema centralizado para rastrear ativos TI, levando a equipamentos perdidos, compras redundantes e dificuldade em agendar manutenções.",
+        solution: "Desenvolvimento de um sistema de inventário padronizado usando MS Office 365, integrado com documentação técnica e uma análise SWOT da infraestrutura de TI.",
+        techStack: [
+          { icon: "storage", label: "MS Office 365" },
+          { icon: "monitor", label: "VirtualBox" },
+          { icon: "description", label: "Documentação" },
+          { icon: "analytics", label: "Análise SWOT" },
+        ],
+        features: ["Diagnóstico de Hardware", "Agendamento de Manutenção", "Documentação Técnica"],
+        github: "https://github.com/Dossantosjoel7",
+        demo: "#",
+        statusText: "Concluído",
+      },
+    };
+  </script>
+
+</BaseLayout>

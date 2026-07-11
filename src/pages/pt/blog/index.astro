@@ -1,11 +1,11 @@
 ---
-// src/pages/blog/index.astro
+// src/pages/pt/blog/index.astro
 import { getCollection } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
 
-// Fetch only English blog posts
+// Fetch only Portuguese blog posts
 const allPosts = await getCollection('blog', ({ id }) => {
-  return id.startsWith('en/');
+  return id.startsWith('pt/');
 });
 
 // Sort by date descending
@@ -34,29 +34,29 @@ const getCategoryClasses = (category: string) => {
   return 'text-electric-blue border-electric-blue/30 bg-electric-blue/5';
 };
 
-const title = "Joel Luis dos Santos | Dev Diary";
-const description = "Documentation of technical challenges, my ideas, and various topics. Take a look.";
+const title = "Joel Luis dos Santos | Diário Dev";
+const description = "Documentação de desafios técnicos, as minhas ideias e vários tópicos. Dá uma vista de olhos.";
 ---
 
-<BaseLayout title={title} description={description} lang="en">
+<BaseLayout title={title} description={description} lang="pt">
   
   <div class="max-w-7xl mx-auto w-full px-margin-page pb-section-gap">
     <!-- Hero / Intro -->
     <section class="mb-stack-lg border-l-2 border-electric-blue pl-8 py-4">
       <h1 class="font-headline-xl text-headline-xl mb-stack-sm tracking-tighter">
-        My <span class="text-electric-blue">Dev Diary</span>
+        O meu <span class="text-electric-blue">Diário Dev</span>
       </h1>
       <p class="font-body-lg text-body-lg text-text-muted max-w-2xl terminal-cursor">
-        Documentation of technical challenges, my ideas, and various topics. Take a look.
+        Documentação de desafios técnicos, as minhas ideias e vários tópicos. Dá uma vista de olhos.
       </p>
     </section>
 
     <!-- Filters/Sub-nav -->
     <div class="flex flex-wrap gap-4 mb-stack-lg">
-      <button class="px-4 py-2 border border-electric-blue bg-electric-blue/10 text-electric-blue font-label-md text-label-md rounded">All Logs</button>
+      <button class="px-4 py-2 border border-electric-blue bg-electric-blue/10 text-electric-blue font-label-md text-label-md rounded">Todos os Logs</button>
       <button class="px-4 py-2 border border-surface-border hover:border-electric-blue text-text-muted hover:text-on-surface font-label-md text-label-md rounded transition-all">Devlog</button>
       <button class="px-4 py-2 border border-surface-border hover:border-electric-blue text-text-muted hover:text-on-surface font-label-md text-label-md rounded transition-all">Tutorial</button>
-      <button class="px-4 py-2 border border-surface-border hover:border-electric-blue text-text-muted hover:text-on-surface font-label-md text-label-md rounded transition-all">IT Insights</button>
+      <button class="px-4 py-2 border border-surface-border hover:border-electric-blue text-text-muted hover:text-on-surface font-label-md text-label-md rounded transition-all">Insights TI</button>
     </div>
 
     <!-- Devlog Grid -->
@@ -70,7 +70,7 @@ const description = "Documentation of technical challenges, my ideas, and variou
             </span>
             <div class="text-right">
               <p class="font-label-sm text-label-sm text-text-muted">
-                {post.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase()}
+                {post.data.date.toLocaleDateString('pt-PT', { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase()}
               </p>
               <p class="font-label-sm text-label-sm text-text-muted">{post.data.readTime.toUpperCase()}</p>
             </div>
@@ -90,20 +90,20 @@ const description = "Documentation of technical challenges, my ideas, and variou
             ))}
           </div>
           
-          <a class="inline-flex items-center gap-2 text-electric-blue font-label-md text-label-md group/link" href={`/blog/${post.id.replace('en/', '').replace(/\.mdx?$/, '')}`}>
-            READ_FULL_LOG
+          <a class="inline-flex items-center gap-2 text-electric-blue font-label-md text-label-md group/link" href={`/pt/blog/${post.id.replace('pt/', '').replace(/\.mdx?$/, '')}`}>
+            LER_LOG_COMPLETO
             <span class="material-symbols-outlined group-hover/link:translate-x-1 transition-transform" data-icon="keyboard_arrow_right">keyboard_arrow_right</span>
           </a>
         </article>
       ))}
 
-      <!-- Featured Image Card (Asymmetric Layout) - HIDDEN FOR NOW -->
+      <!-- Featured Image Card - HIDDEN FOR NOW -->
       <div class="hidden lg:col-span-1 border border-surface-border rounded-lg overflow-hidden relative group">
         <div class="absolute inset-0 bg-gradient-to-t from-surface-main via-transparent to-transparent z-10"></div>
         <div class="w-full h-full min-h-[300px] bg-cover bg-center transition-transform duration-700 group-hover:scale-110" 
              style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDLdC7ie2ghON80ycF8Y-9fU0lBIX_HFt52i5UO_yNJBEzXPFReZiEpNue0U3lFZUjD5oKtus8oYz83WyFPqO0THOqww0gSbrmrzHU-58ju1qEWldGURv1EJkV8IMlowsLKyq68QcUcO-TFAZN7ZNaoiW22OxqgUzLoC_47i9OZzndS9vE_y55_5xXyRZdW1sNfpKzg0bHAEPMMCQO6BxSUwYvquHos8ObnEZPPDHwXLy2a761PqGk')"></div>
         <div class="absolute bottom-6 left-6 z-20">
-          <h4 class="font-headline-md text-headline-md text-white mb-2">Visualizing Logic</h4>
+          <h4 class="font-headline-md text-headline-md text-white mb-2">Visualizando a Lógica</h4>
           <p class="font-label-sm text-label-sm text-electric-blue font-bold tracking-widest uppercase">The Workspace Series</p>
         </div>
       </div>
@@ -126,4 +126,3 @@ const description = "Documentation of technical challenges, my ideas, and variou
     </div>
   </div>
 </BaseLayout>
-

@@ -1,0 +1,92 @@
+---
+// src/pages/pt/contact.astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Joel Luis dos Santos | Contacto";
+const description = "Entre em contacto com o Joel Luis dos Santos para trabalho freelancer, projetos de engenharia de software ou oportunidades de suporte técnico.";
+---
+
+<BaseLayout title={title} description={description} lang="pt">
+  <div class="pb-section-gap px-margin-page max-w-7xl mx-auto w-full flex-grow pt-8 technical-bg">
+    <!-- Hero Section -->
+    <section class="mb-16">
+      <h1 class="font-headline-xl text-headline-xl text-on-surface mb-6">
+        Vamos começar uma <span class="text-cyber-orange">conversa.</span>
+      </h1>
+      <p class="font-body-lg text-body-lg text-text-muted max-w-2xl">
+        Estou disponível para trabalhos de nível júnior, freelance e suporte técnico. Escolha a opção que melhor se adapta às suas necessidades.
+      </p>
+    </section>
+
+    <!-- Layout Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <!-- Left Column: DIRECT -->
+      <section class="contact-card p-8 rounded-xl flex flex-col gap-6">
+        <div class="font-label-sm text-label-sm text-cyber-orange uppercase tracking-[0.2em] mb-2">Direto</div>
+        
+        <!-- Email Card -->
+        <a class="flex items-center justify-between p-6 bg-surface-container-lowest border border-surface-border rounded-lg group hover:border-electric-blue transition-all" href="mailto:dossantosjoel7@gmail.com">
+          <div class="flex items-center gap-6">
+            <div class="w-12 h-12 flex items-center justify-center bg-surface-container rounded-lg group-hover:text-electric-blue transition-colors">
+              <span class="material-symbols-outlined">mail</span>
+            </div>
+            <div>
+              <p class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider mb-1">Email</p>
+              <p class="font-label-md text-label-md text-on-surface group-hover:text-electric-blue">dossantosjoel7@gmail.com</p>
+            </div>
+          </div>
+          <span class="material-symbols-outlined text-text-muted group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">north_east</span>
+        </a>
+
+        <!-- WhatsApp Card -->
+        <a class="flex items-center justify-between p-6 bg-surface-container-lowest border border-surface-border rounded-lg group hover:border-electric-blue transition-all" href="https://wa.me/+351913569229" target="_blank" rel="noopener noreferrer">
+          <div class="flex items-center gap-6">
+            <div class="w-12 h-12 flex items-center justify-center bg-surface-container rounded-lg group-hover:text-electric-blue transition-colors">
+              <span class="material-symbols-outlined">chat</span>
+            </div>
+            <div>
+              <p class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider mb-1">WhatsApp</p>
+              <p class="font-label-md text-label-md text-on-surface group-hover:text-electric-blue">+351 913 569 229</p>
+            </div>
+          </div>
+          <span class="material-symbols-outlined text-text-muted group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">north_east</span>
+        </a>
+      </section>
+
+      <!-- Right Column: SOCIAL -->
+      <div>
+        <!-- Social Grid Card -->
+        <section class="contact-card p-8 rounded-xl h-full flex flex-col justify-between">
+          <div>
+            <div class="font-label-sm text-label-sm text-cyber-orange uppercase tracking-[0.2em] mb-6">Social</div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <!-- LinkedIn -->
+              <a class="flex items-center justify-between p-4 bg-surface-container-lowest border border-surface-border rounded-lg group hover:border-electric-blue transition-all" href="https://linkedin.com/in/joel-luís-dos-santos-0ba20b286" target="_blank" rel="noopener noreferrer">
+                <div class="flex items-center gap-4">
+                  <span class="material-symbols-outlined text-text-muted group-hover:text-electric-blue">lan</span>
+                  <div>
+                    <p class="font-label-sm text-label-sm text-on-surface">LinkedIn</p>
+                    <p class="text-[10px] text-text-muted">@Joel-luis-dos-santos</p>
+                  </div>
+                </div>
+                <span class="material-symbols-outlined text-[18px] text-text-muted">north_east</span>
+              </a>
+
+              <!-- GitHub -->
+              <a class="flex items-center justify-between p-4 bg-surface-container-lowest border border-surface-border rounded-lg group hover:border-electric-blue transition-all" href="https://github.com/Dossantosjoel7" target="_blank" rel="noopener noreferrer">
+                <div class="flex items-center gap-4">
+                  <span class="material-symbols-outlined text-text-muted group-hover:text-electric-blue">terminal</span>
+                  <div>
+                    <p class="font-label-sm text-label-sm text-on-surface">GitHub</p>
+                    <p class="text-[10px] text-text-muted">@Dossantosjoel7</p>
+                  </div>
+                </div>
+                <span class="material-symbols-outlined text-[18px] text-text-muted">north_east</span>
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

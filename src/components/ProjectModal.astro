@@ -1,0 +1,495 @@
+---
+// src/components/ProjectModal.astro
+// This component renders an empty modal shell.
+// JavaScript on the page populates it with project data and handles open/close.
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'en' } = Astro.props;
+
+const labels = {
+  en: {
+    overview: 'Project Overview',
+    challenge: 'The Challenge',
+    solution: 'The Solution',
+    techStack: 'Technical Implementation',
+    metrics: 'Performance Metrics',
+    features: 'Key Features',
+    viewCode: 'View Code on GitHub',
+    liveDemo: 'Live Demo',
+    status: 'Project status:',
+    screenshot: 'Screenshot',
+    demoVideo: 'Demo Video',
+  },
+  pt: {
+    overview: 'Visão Geral do Projeto',
+    challenge: 'O Desafio',
+    solution: 'A Solução',
+    techStack: 'Implementação Técnica',
+    metrics: 'Métricas de Desempenho',
+    features: 'Funcionalidades Principais',
+    viewCode: 'Ver Código no GitHub',
+    liveDemo: 'Demo ao Vivo',
+    status: 'Estado do projeto:',
+    screenshot: 'Captura de ecrã',
+    demoVideo: 'Vídeo Demo',
+  },
+};
+
+type Lang = keyof typeof labels;
+const l = labels[lang as Lang] || labels.en;
+---
+
+<!-- Modal Backdrop + Container -->
+<div id="project-modal-overlay" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 overflow-hidden">
+  <!-- Backdrop -->
+  <div id="project-modal-backdrop" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+
+  <!-- Modal Panel -->
+  <main id="project-modal-panel" class="glass-panel w-full max-w-5xl max-h-[90vh] flex flex-col rounded-lg shadow-2xl relative overflow-hidden transition-all duration-500 scale-95 opacity-0 z-10">
+    
+    <!-- Header Zone -->
+    <header class="flex items-center justify-between px-6 py-4 border-b border-surface-border bg-surface-main/50 shrink-0">
+      <div class="flex items-center gap-3">
+        <span id="modal-header-icon" class="material-symbols-outlined text-electric-blue">school</span>
+        <h1 id="modal-title" class="font-headline-md text-headline-md text-electric-blue tracking-tight">Project Title</h1>
+      </div>
+      <button id="modal-close-btn" class="text-text-muted hover:text-on-surface transition-colors p-1 rounded-lg hover:bg-surface-variant">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </header>
+
+    <!-- Content Area (Scrollable) -->
+    <div class="flex-1 overflow-y-auto">
+      
+      <!-- Media Zone -->
+      <section id="modal-media-section" class="p-6">
+        <div class="relative group bg-surface-container-lowest rounded-lg border border-surface-border overflow-hidden aspect-video">
+          <!-- Image Element -->
+          <img id="modal-image" class="w-full h-full object-cover" src="" alt="Project screenshot" />
+          
+          <!-- YouTube Iframe Element -->
+          <iframe id="modal-youtube" class="w-full h-full hidden border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+          <!-- Carousel Controls -->
+          <button id="carousel-prev-btn" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-surface-main/80 border border-surface-border text-on-surface hover:text-electric-blue transition-colors flex items-center justify-center hidden z-20">
+            <span class="material-symbols-outlined">chevron_left</span>
+          </button>
+          <button id="carousel-next-btn" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-surface-main/80 border border-surface-border text-on-surface hover:text-electric-blue transition-colors flex items-center justify-center hidden z-20">
+            <span class="material-symbols-outlined">chevron_right</span>
+          </button>
+          <span id="carousel-indicator" class="absolute top-4 right-4 px-2.5 py-1 text-[11px] font-semibold bg-surface-main/85 backdrop-blur border border-surface-border rounded text-text-muted hidden z-20">1 / 1</span>
+
+          <!-- Media Controls Overlay -->
+          <div id="modal-media-controls" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 p-1 bg-surface-main/80 backdrop-blur-md rounded-lg border border-surface-border z-25">
+            <button id="media-btn-screenshot" class="px-3 py-1 flex items-center gap-2 text-label-sm font-label-sm text-on-surface bg-surface-variant rounded-lg transition-all">
+              <span class="material-symbols-outlined text-[16px]">image</span> {l.screenshot}
+            </button>
+            <button id="media-btn-video" class="px-3 py-1 flex items-center gap-2 text-label-sm font-label-sm text-text-muted hover:text-on-surface transition-colors rounded-lg transition-all">
+              <span class="material-symbols-outlined text-[16px]">play_circle</span> {l.demoVideo}
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Info Zone -->
+      <div class="px-6 pb-12 grid grid-cols-1 lg:grid-cols-12 gap-gutter-grid">
+        <!-- Primary Column -->
+        <div id="modal-primary-col" class="lg:col-span-8 space-y-stack-lg">
+
+          <!-- Overview -->
+          <article>
+            <h2 class="font-headline-lg text-headline-lg text-on-surface mb-stack-sm flex items-center gap-2">
+              <span class="text-electric-blue">01</span> {l.overview}
+            </h2>
+            <p id="modal-overview" class="font-body-md text-body-md text-on-surface-variant leading-relaxed"></p>
+          </article>
+
+          <!-- Challenge & Solution -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+            <div class="p-5 border border-surface-border rounded-lg bg-surface-container-low">
+              <h3 class="text-error font-label-sm text-label-sm uppercase tracking-widest mb-3">{l.challenge}</h3>
+              <p id="modal-challenge" class="font-body-md text-body-md text-text-muted"></p>
+            </div>
+            <div class="p-5 border border-surface-border rounded-lg bg-surface-container-low">
+              <h3 class="text-electric-blue font-label-sm text-label-sm uppercase tracking-widest mb-3">{l.solution}</h3>
+              <p id="modal-solution" class="font-body-md text-body-md text-text-muted"></p>
+            </div>
+          </div>
+
+          <!-- Tech Stack Badges -->
+          <article>
+            <h2 class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest mb-stack-sm">{l.techStack}</h2>
+            <div id="modal-tech-stack" class="flex flex-wrap gap-2">
+              <!-- Populated by JS -->
+            </div>
+          </article>
+        </div>
+
+        <!-- Secondary Column (Metrics) -->
+        <aside id="modal-sidebar" class="lg:col-span-4 space-y-stack-md">
+          <div id="modal-metrics-card" class="p-6 glass-panel rounded-lg border-electric-blue/30 bg-electric-blue/5">
+            <h3 class="font-label-sm text-label-sm text-electric-blue mb-4 uppercase tracking-widest">{l.metrics}</h3>
+            <div id="modal-metrics" class="space-y-4">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+          <div id="modal-features-card" class="p-6 border border-surface-border rounded-lg">
+            <h4 class="font-label-sm text-label-sm text-text-muted mb-2">{l.features}</h4>
+            <ul id="modal-features" class="space-y-2">
+              <!-- Populated by JS -->
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Footer Actions -->
+    <footer class="px-6 py-6 border-t border-surface-border bg-surface-main/80 flex flex-col sm:flex-row items-center justify-between gap-4 shrink-0">
+      <div class="flex gap-4 w-full sm:w-auto">
+        <a id="modal-github-link" class="btn-glow-blue w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-electric-blue text-on-primary font-label-sm text-label-sm rounded-lg hover:opacity-90 transition-all active:scale-95" href="#" target="_blank" rel="noopener noreferrer">
+          <span class="material-symbols-outlined">code</span>
+          {l.viewCode}
+        </a>
+        <a id="modal-demo-link" class="btn-glow-orange w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 border border-cyber-orange text-cyber-orange font-label-sm text-label-sm rounded-lg hover:bg-cyber-orange/10 transition-all active:scale-95" href="#" target="_blank" rel="noopener noreferrer">
+          <span class="material-symbols-outlined">rocket_launch</span>
+          {l.liveDemo}
+        </a>
+      </div>
+      <div class="flex items-center gap-2 text-text-muted">
+        <span class="text-label-sm font-label-sm">{l.status}</span>
+        <span id="modal-status-badge" class="flex items-center gap-1.5 px-2 py-0.5 bg-green-500/10 text-green-400 rounded text-[10px] uppercase font-bold tracking-tighter">
+          <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
+          <span id="modal-status-text">Production Ready</span>
+        </span>
+      </div>
+    </footer>
+  </main>
+</div>
+
+<script>
+  function setupProjectModal() {
+    const overlay = document.getElementById('project-modal-overlay');
+    const backdrop = document.getElementById('project-modal-backdrop');
+    const panel = document.getElementById('project-modal-panel');
+    const closeBtn = document.getElementById('modal-close-btn');
+
+    if (!overlay || !panel || !backdrop || !closeBtn) return;
+
+    function openModal(projectId: string) {
+      // Get project data from the global projects data object
+      const projectsData = (window as any).__PROJECTS_DATA__;
+      if (!projectsData || !projectsData[projectId]) return;
+
+      const project = projectsData[projectId];
+
+      // Populate modal content
+      const titleEl = document.getElementById('modal-title');
+      const iconEl = document.getElementById('modal-header-icon');
+      const mediaSection = document.getElementById('modal-media-section');
+      const imageEl = document.getElementById('modal-image') as HTMLImageElement;
+      const youtubeEl = document.getElementById('modal-youtube') as HTMLIFrameElement;
+      const mediaControls = document.getElementById('modal-media-controls');
+      const screenshotBtn = document.getElementById('media-btn-screenshot');
+      const videoBtn = document.getElementById('media-btn-video');
+      
+      // Carousel Elements
+      const prevBtn = document.getElementById('carousel-prev-btn');
+      const nextBtn = document.getElementById('carousel-next-btn');
+      const indicator = document.getElementById('carousel-indicator');
+
+      const overviewEl = document.getElementById('modal-overview');
+      const challengeEl = document.getElementById('modal-challenge');
+      const solutionEl = document.getElementById('modal-solution');
+      const techStackEl = document.getElementById('modal-tech-stack');
+      const metricsEl = document.getElementById('modal-metrics');
+      const featuresEl = document.getElementById('modal-features');
+      const githubLink = document.getElementById('modal-github-link') as HTMLAnchorElement;
+      const demoLink = document.getElementById('modal-demo-link') as HTMLAnchorElement;
+      const statusText = document.getElementById('modal-status-text');
+
+      // Sidebar Layout Elements
+      const sidebar = document.getElementById('modal-sidebar');
+      const primaryCol = document.getElementById('modal-primary-col');
+      const metricsCard = document.getElementById('modal-metrics-card');
+      const featuresCard = document.getElementById('modal-features-card');
+
+      if (titleEl) titleEl.textContent = project.title;
+      if (iconEl) iconEl.textContent = project.icon || 'school';
+
+      // 1. CAROUSEL & MEDIA LOGIC
+      let images: string[] = [];
+      if (Array.isArray(project.images)) {
+        images = project.images;
+      } else if (project.image) {
+        images = [project.image];
+      }
+
+      const hasImages = images.length > 0;
+      const hasVideo = !!project.youtubeId;
+
+      if (mediaSection) {
+        if (!hasImages && !hasVideo) {
+          mediaSection.classList.add('hidden');
+        } else {
+          mediaSection.classList.remove('hidden');
+
+          // Reset Media View
+          if (imageEl) imageEl.classList.add('hidden');
+          if (youtubeEl) {
+            youtubeEl.classList.add('hidden');
+            youtubeEl.src = '';
+          }
+          if (mediaControls) mediaControls.classList.add('hidden');
+          if (prevBtn) prevBtn.classList.add('hidden');
+          if (nextBtn) nextBtn.classList.add('hidden');
+          if (indicator) indicator.classList.add('hidden');
+
+          let currentImageIndex = 0;
+          const updateImage = () => {
+            if (imageEl && images.length > 0) {
+              imageEl.src = images[currentImageIndex];
+              imageEl.alt = `${project.title} - ${currentImageIndex + 1}`;
+            }
+            if (indicator) {
+              indicator.textContent = `${currentImageIndex + 1} / ${images.length}`;
+            }
+          };
+
+          const setupImageCarousel = () => {
+            if (imageEl && hasImages) {
+              imageEl.classList.remove('hidden');
+              updateImage();
+
+              if (images.length > 1) {
+                if (prevBtn) prevBtn.classList.remove('hidden');
+                if (nextBtn) nextBtn.classList.remove('hidden');
+                if (indicator) indicator.classList.remove('hidden');
+
+                // Clone buttons to clean previous event listeners
+                const newPrevBtn = prevBtn.cloneNode(true) as HTMLButtonElement;
+                const newNextBtn = nextBtn.cloneNode(true) as HTMLButtonElement;
+                prevBtn.parentNode?.replaceChild(newPrevBtn, prevBtn);
+                nextBtn.parentNode?.replaceChild(newNextBtn, nextBtn);
+
+                newPrevBtn.addEventListener('click', () => {
+                  currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                  updateImage();
+                });
+
+                newNextBtn.addEventListener('click', () => {
+                  currentImageIndex = (currentImageIndex + 1) % images.length;
+                  updateImage();
+                });
+              }
+            }
+          };
+
+          if (hasImages && !hasVideo) {
+            setupImageCarousel();
+          } 
+          else if (!hasImages && hasVideo) {
+            if (youtubeEl) {
+              youtubeEl.classList.remove('hidden');
+              youtubeEl.src = `https://www.youtube.com/embed/${project.youtubeId}`;
+            }
+          } 
+          else if (hasImages && hasVideo) {
+            setupImageCarousel();
+            if (mediaControls && screenshotBtn && videoBtn) {
+              mediaControls.classList.remove('hidden');
+              
+              screenshotBtn.className = 'px-3 py-1 flex items-center gap-2 text-label-sm font-label-sm text-on-surface bg-surface-variant rounded-lg transition-all';
+              videoBtn.className = 'px-3 py-1 flex items-center gap-2 text-label-sm font-label-sm text-text-muted hover:text-on-surface transition-colors rounded-lg transition-all';
+
+              const showScreenshot = () => {
+                screenshotBtn.className = 'px-3 py-1 flex items-center gap-2 text-label-sm font-label-sm text-on-surface bg-surface-variant rounded-lg transition-all';
+                videoBtn.className = 'px-3 py-1 flex items-center gap-2 text-label-sm font-label-sm text-text-muted hover:text-on-surface transition-colors rounded-lg transition-all';
+                
+                if (imageEl) imageEl.classList.remove('hidden');
+                if (images.length > 1) {
+                  const pBtn = document.getElementById('carousel-prev-btn');
+                  const nBtn = document.getElementById('carousel-next-btn');
+                  const ind = document.getElementById('carousel-indicator');
+                  if (pBtn) pBtn.classList.remove('hidden');
+                  if (nBtn) nBtn.classList.remove('hidden');
+                  if (ind) ind.classList.remove('hidden');
+                }
+                
+                if (youtubeEl) {
+                  youtubeEl.classList.add('hidden');
+                  youtubeEl.src = '';
+                }
+              };
+
+              const showVideo = () => {
+                videoBtn.className = 'px-3 py-1 flex items-center gap-2 text-label-sm font-label-sm text-on-surface bg-surface-variant rounded-lg transition-all';
+                screenshotBtn.className = 'px-3 py-1 flex items-center gap-2 text-label-sm font-label-sm text-text-muted hover:text-on-surface transition-colors rounded-lg transition-all';
+                
+                if (imageEl) imageEl.classList.add('hidden');
+                const pBtn = document.getElementById('carousel-prev-btn');
+                const nBtn = document.getElementById('carousel-next-btn');
+                const ind = document.getElementById('carousel-indicator');
+                if (pBtn) pBtn.classList.add('hidden');
+                if (nBtn) nBtn.classList.add('hidden');
+                if (ind) ind.classList.add('hidden');
+
+                if (youtubeEl) {
+                  youtubeEl.classList.remove('hidden');
+                  youtubeEl.src = `https://www.youtube.com/embed/${project.youtubeId}?autoplay=1`;
+                }
+              };
+
+              const newScreenshotBtn = screenshotBtn.cloneNode(true) as HTMLButtonElement;
+              const newVideoBtn = videoBtn.cloneNode(true) as HTMLButtonElement;
+              screenshotBtn.parentNode?.replaceChild(newScreenshotBtn, screenshotBtn);
+              videoBtn.parentNode?.replaceChild(newVideoBtn, videoBtn);
+
+              newScreenshotBtn.addEventListener('click', showScreenshot);
+              newVideoBtn.addEventListener('click', showVideo);
+            }
+          }
+        }
+      }
+
+      // 2. SIDEBAR DYNAMIC LAYOUT
+      const hasMetrics = !!project.metrics && project.metrics.length > 0;
+      const hasFeatures = !!project.features && project.features.length > 0;
+
+      if (metricsCard) {
+        if (hasMetrics) {
+          metricsCard.classList.remove('hidden');
+          if (metricsEl) {
+            metricsEl.innerHTML = '';
+            project.metrics.forEach((metric: { label: string; value: string }) => {
+              const div = document.createElement('div');
+              div.className = 'metric-card p-4 rounded-lg';
+              div.innerHTML = `<div class="text-text-muted font-label-sm text-label-sm">${metric.label}</div><div class="text-headline-md font-headline-md text-on-surface">${metric.value}</div>`;
+              metricsEl.appendChild(div);
+            });
+          }
+        } else {
+          metricsCard.classList.add('hidden');
+        }
+      }
+
+      if (featuresCard) {
+        if (hasFeatures) {
+          featuresCard.classList.remove('hidden');
+          if (featuresEl) {
+            featuresEl.innerHTML = '';
+            project.features.forEach((feature: string) => {
+              const li = document.createElement('li');
+              li.className = 'flex items-center gap-2 font-label-md text-label-md text-on-surface-variant';
+              li.innerHTML = `<span class="material-symbols-outlined text-electric-blue text-[16px]">check_circle</span> ${feature}`;
+              featuresEl.appendChild(li);
+            });
+          }
+        } else {
+          featuresCard.classList.add('hidden');
+        }
+      }
+
+      // Adjust primary col sizes dynamically
+      if (primaryCol && sidebar) {
+        if (!hasMetrics && !hasFeatures) {
+          sidebar.classList.add('hidden');
+          primaryCol.className = 'lg:col-span-12 space-y-stack-lg';
+        } else {
+          sidebar.classList.remove('hidden');
+          primaryCol.className = 'lg:col-span-8 space-y-stack-lg';
+        }
+      }
+
+      // 3. ACTION BUTTONS DISPLAY
+      if (githubLink) {
+        if (project.github) {
+          githubLink.href = project.github;
+          githubLink.classList.remove('hidden');
+        } else {
+          githubLink.classList.add('hidden');
+        }
+      }
+
+      if (demoLink) {
+        if (project.demo) {
+          demoLink.href = project.demo;
+          demoLink.classList.remove('hidden');
+        } else {
+          demoLink.classList.add('hidden');
+        }
+      }
+
+      if (overviewEl) overviewEl.textContent = project.overview || '';
+      if (challengeEl) challengeEl.textContent = project.challenge || '';
+      if (solutionEl) solutionEl.textContent = project.solution || '';
+      if (statusText) statusText.textContent = project.statusText || 'Production Ready';
+
+      // Tech stack badges
+      if (techStackEl) {
+        techStackEl.innerHTML = '';
+        (project.techStack || []).forEach((tech: { icon: string; label: string }) => {
+          const span = document.createElement('span');
+          span.className = 'tech-badge px-4 py-2 flex items-center gap-2 rounded-lg';
+          span.innerHTML = `<span class="material-symbols-outlined text-electric-blue text-[18px]">${tech.icon}</span><span class="font-label-md text-label-md">${tech.label}</span>`;
+          techStackEl.appendChild(span);
+        });
+      }
+
+      // Show modal with animation
+      overlay.classList.remove('hidden');
+      overlay.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+
+      // Trigger entrance animation
+      requestAnimationFrame(() => {
+        panel.style.transition = 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+        panel.classList.remove('scale-95', 'opacity-0');
+        panel.classList.add('scale-100', 'opacity-100');
+      });
+    }
+
+    function closeModal() {
+      panel.classList.remove('scale-100', 'opacity-100');
+      panel.classList.add('scale-95', 'opacity-0');
+
+      // Stop any video playback immediately when closing
+      const youtubeEl = document.getElementById('modal-youtube') as HTMLIFrameElement;
+      if (youtubeEl) youtubeEl.src = '';
+
+      setTimeout(() => {
+        overlay.classList.add('hidden');
+        overlay.classList.remove('flex');
+        document.body.style.overflow = '';
+      }, 300);
+    }
+
+    // Close button
+    closeBtn.addEventListener('click', closeModal);
+
+    // Backdrop click
+    backdrop.addEventListener('click', closeModal);
+
+    // ESC key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !overlay.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+
+    // Wire up all "View Details" buttons
+    document.querySelectorAll('.project-detail-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const projectId = (btn as HTMLElement).dataset.projectId;
+        if (projectId) openModal(projectId);
+      });
+    });
+  }
+
+  // Setup on page load
+  setupProjectModal();
+
+  // Setup on page transitions (Astro View Transitions)
+  document.addEventListener('astro:after-swap', setupProjectModal);
+</script>

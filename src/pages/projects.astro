@@ -1,0 +1,174 @@
+---
+// src/pages/projects.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import ProjectModal from '../components/ProjectModal.astro';
+
+const title = "Joel Luis dos Santos | Projects";
+const description = "Explore all the academic, personal, and professional projects developed by Joel Luis dos Santos in software engineering, web development, and IT.";
+---
+
+<BaseLayout title={title} description={description} lang="en">
+
+  <!-- Hero Section -->
+  <section class="px-margin-page mb-section-gap relative z-10">
+    <div class="max-w-4xl">
+      <div class="flex items-center gap-3 mb-stack-sm">
+        <div class="w-8 h-[1px] bg-electric-blue"></div>
+        <span class="font-label-sm text-label-sm text-electric-blue uppercase tracking-widest">Repository</span>
+      </div>
+      <h1 class="font-headline-xl text-headline-xl mb-4 text-on-surface">System // Projects</h1>
+      <p class="font-body-lg text-body-lg text-text-muted max-w-2xl">Here you'll find all the projects I've worked on, whether in a professional, academic, or personal context.</p>
+    </div>
+  </section>
+
+  <!-- Academic & Personal Projects Section -->
+  <section class="px-margin-page relative z-10 mb-section-gap">
+    <div class="flex items-baseline justify-between mb-stack-lg border-b border-surface-border pb-4">
+      <h2 class="font-headline-lg text-headline-lg text-on-surface">Academic & Personal Projects</h2>
+      <span class="font-label-sm text-label-sm text-text-muted hidden md:inline">RESEARCH & DEVELOPMENT</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <ProjectCard
+        projectId="ai-education"
+        title="AI Education Agents"
+        subtitle="Multi-Agent Learning System"
+        status="v1.0 STABLE"
+        description="A suite of autonomous multi-agent systems designed to revolutionize personalized learning. Leveraging large language models to act as specialized tutors, researchers, and assessment coordinators."
+        tags={[
+          { icon: "terminal", label: "Python 3.11" },
+          { icon: "database", label: "Ollama" },
+          { icon: "dashboard", label: "Streamlit" },
+        ]}
+        viewDetailsLabel="View Details"
+      />
+
+      <ProjectCard
+        projectId="portfolio"
+        title="Personal Portfolio"
+        subtitle="Full-Stack Web Application"
+        status="v2.0 LIVE"
+        description="A modern, responsive portfolio website built with Astro and Tailwind CSS v4. Features dark mode design, multilingual support (EN/PT), and smooth micro-animations."
+        tags={[
+          { icon: "code", label: "Astro" },
+          { icon: "palette", label: "Tailwind v4" },
+          { icon: "language", label: "TypeScript" },
+        ]}
+        viewDetailsLabel="View Details"
+      />
+
+      <ProjectCard
+        projectId="inventory-sys"
+        title="IT Inventory System"
+        subtitle="Enterprise Management Tool"
+        status="v1.2 STABLE"
+        description="A comprehensive IT asset management system developed during internship at TW Twins Lda. Tracks hardware diagnostics, maintenance schedules, and equipment lifecycle."
+        tags={[
+          { icon: "storage", label: "MS Office 365" },
+          { icon: "monitor", label: "VirtualBox" },
+          { icon: "description", label: "Documentation" },
+        ]}
+        viewDetailsLabel="View Details"
+      />
+
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="px-margin-page py-section-gap">
+    <div class="bg-surface-container border border-surface-border rounded-lg p-12 text-center relative overflow-hidden">
+      <h2 class="font-headline-lg text-headline-lg text-on-surface mb-6">Do you need to contact me?</h2>
+      <p class="max-w-2xl mx-auto font-body-lg text-body-lg text-text-muted mb-10">
+        I'm open to junior-level development projects in web, mobile, and technical support. Let's talk.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/contact" class="bg-cyber-orange text-on-secondary-fixed px-10 py-4 rounded font-label-md text-label-md font-bold hover:scale-105 transition-all flex items-center gap-2 justify-center">
+          Start a Conversation <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
+      </div>
+      <!-- Subtle glow effect -->
+      <div class="absolute -z-10 bottom-0 right-0 w-64 h-64 bg-cyber-orange/10 blur-[100px] rounded-full"></div>
+      <div class="absolute -z-10 top-0 left-0 w-64 h-64 bg-electric-blue/10 blur-[100px] rounded-full"></div>
+    </div>
+  </section>
+
+  <!-- Project Modal -->
+  <ProjectModal lang="en" />
+
+  <!-- Projects Data for Modal -->
+  <script>
+    (window as any).__PROJECTS_DATA__ = {
+      "ai-education": {
+        title: "AI Education Agents",
+        icon: "school",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAAC6DQxgko0ynNvtXjsdRPw1VUwwO-Yqa0OwuTn9kx8gTvuy4kA1MifNwaBKUIckyFdJfF8uVTIRFZUtUwQxzEC1TpDXeeG1hmLr2WHMJx5bwN6bO7hJAD9srR8ieHgd9XhPgH2z3iXxXCzJ02SMix5whHjUUK8SPpNm9m2TL3eb1fhsJatKVGB1NdcOgS8VO3eG7dT1PwYkoZ_XM0uEBMKBXe6tKDlbVMQSC-dcs41_BZk6PPYho",
+        overview: "A suite of autonomous multi-agent systems designed to revolutionize personalized learning. Leveraging large language models to act as specialized tutors, researchers, and assessment coordinators, creating a seamless end-to-end educational journey for students in computer science.",
+        challenge: "Standard AI chatbots lack pedagogical context and memory, leading to disjointed learning experiences and factual hallucinations in technical topics.",
+        solution: "An orchestrated agent architecture using RAG (Retrieval-Augmented Generation) to ground tutoring sessions in verified academic datasets.",
+        techStack: [
+          { icon: "terminal", label: "Python 3.11" },
+          { icon: "database", label: "Ollama" },
+          { icon: "dashboard", label: "Streamlit" },
+          { icon: "link", label: "LangChain" },
+        ],
+        metrics: [
+          { label: "Inference Latency", value: "< 1.2s" },
+          { label: "Knowledge Accuracy", value: "94.8%" },
+          { label: "Concurrent Agents", value: "12+" },
+        ],
+        features: ["Semantic Memory", "Auto-Grading Logic", "PDF Context Injection"],
+        github: "https://github.com/Dossantosjoel7",
+        demo: "#",
+        statusText: "Production Ready",
+      },
+      "portfolio": {
+        title: "Personal Portfolio",
+        icon: "web",
+        image: "",
+        overview: "A modern, responsive portfolio website built with Astro and Tailwind CSS v4. Features a premium dark mode design system with glassmorphism effects, multilingual support (EN/PT), and smooth micro-animations for an engaging user experience.",
+        challenge: "Creating a professional online presence that stands out, works flawlessly across devices, and supports multiple languages without duplicating the entire codebase.",
+        solution: "Leveraging Astro's component architecture for reusable UI elements and static generation, combined with Tailwind CSS v4's design token system for a consistent, scalable design language.",
+        techStack: [
+          { icon: "code", label: "Astro" },
+          { icon: "palette", label: "Tailwind v4" },
+          { icon: "language", label: "TypeScript" },
+          { icon: "dns", label: "Vercel" },
+        ],
+        metrics: [
+          { label: "Lighthouse Score", value: "98+" },
+          { label: "First Paint", value: "< 0.5s" },
+          { label: "Languages", value: "EN / PT" },
+        ],
+        features: ["Dark Mode Design", "Multilingual (i18n)", "SEO Optimized"],
+        github: "https://github.com/Dossantosjoel7",
+        demo: "#",
+        statusText: "Live",
+      },
+      "inventory-sys": {
+        title: "IT Inventory System",
+        icon: "inventory_2",
+        image: "",
+        overview: "A comprehensive IT asset management system developed during a school internship at TW Twins Lda. The system tracks hardware diagnostics, maintenance schedules, and equipment lifecycle across the organization.",
+        challenge: "The company had no centralized system to track IT assets, leading to lost equipment, redundant purchases, and difficulty scheduling maintenance.",
+        solution: "Developed a standardized inventory system using MS Office 365, integrated with technical documentation and a SWOT analysis of the IT infrastructure.",
+        techStack: [
+          { icon: "storage", label: "MS Office 365" },
+          { icon: "monitor", label: "VirtualBox" },
+          { icon: "description", label: "Documentation" },
+          { icon: "analytics", label: "SWOT Analysis" },
+        ],
+        metrics: [
+          { label: "Assets Tracked", value: "200+" },
+          { label: "Downtime Reduction", value: "40%" },
+          { label: "VMs Configured", value: "5" },
+        ],
+        features: ["Hardware Diagnostics", "Maintenance Scheduling", "Technical Documentation"],
+        github: "https://github.com/Dossantosjoel7",
+        demo: "#",
+        statusText: "Completed",
+      },
+    };
+  </script>
+
+</BaseLayout>

@@ -1,0 +1,47 @@
+---
+// src/components/ProjectCard.astro
+interface Props {
+  projectId: string;
+  title: string;
+  subtitle: string;
+  status: string;
+  description: string;
+  tags: { icon: string; label: string }[];
+  viewDetailsLabel?: string;
+}
+
+const { projectId, title, subtitle, status, description, tags, viewDetailsLabel = "View Details" } = Astro.props;
+---
+
+<div class="group bg-surface-card border border-surface-border p-8 transition-all duration-300 hover-glow relative overflow-hidden">
+  <div class="flex justify-between items-start mb-stack-md">
+    <div class="flex items-center gap-4">
+      <div>
+        <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-electric-blue transition-colors">{title}</h3>
+        <p class="font-label-sm text-label-sm text-text-muted">{subtitle}</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-2 px-3 py-1 bg-cyber-orange/10 border border-cyber-orange/20 rounded-full">
+      <span class="w-1.5 h-1.5 bg-cyber-orange rounded-full animate-pulse"></span>
+      <span class="font-label-sm text-label-sm text-cyber-orange">{status}</span>
+    </div>
+  </div>
+  <p class="text-text-muted mb-stack-md leading-relaxed">
+    {description}
+  </p>
+  <div class="flex flex-wrap gap-2 mb-stack-lg">
+    {tags.map((tag) => (
+      <span class="flex items-center gap-1.5 px-3 py-1 bg-surface-container border border-surface-border font-label-sm text-label-sm text-on-surface">
+        <span class="material-symbols-outlined text-sm" style="font-size: 16px;">{tag.icon}</span> {tag.label}
+      </span>
+    ))}
+  </div>
+  <div class="flex">
+    <button
+      class="project-detail-btn flex-1 text-center py-5 border border-surface-border text-text-muted font-label-sm text-label-sm rounded-lg group-hover:border-electric-blue group-hover:text-electric-blue transition-all flex items-center justify-center gap-2"
+      data-project-id={projectId}
+    >
+      {viewDetailsLabel} <span class="material-symbols-outlined" style="font-size: 18px;">visibility</span>
+    </button>
+  </div>
+</div>

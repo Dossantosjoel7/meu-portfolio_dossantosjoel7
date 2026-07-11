@@ -53,3 +53,80 @@ body {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
+
+.technical-bg {
+    background-image: radial-gradient(circle at 2px 2px, #222222 1px, transparent 0);
+    background-size: 40px 40px;
+}
+.contact-card {
+    background: #0D0E11;
+    border: 1px solid #1E1F23;
+    transition: all 0.3s ease;
+}
+.contact-card:hover {
+    border-color: #007AFF;
+    background: #121317;
+}
+
+
+
+/* Project Modal Styles */
+.glass-panel {
+    backdrop-filter: blur(12px);
+    background-color: rgba(18, 19, 23, 0.85);
+    border: 1px solid #222222;
+}
+.tech-badge {
+    background-color: #1A1A1A;
+    border: 1px solid #222222;
+    transition: all 0.3s ease;
+}
+.tech-badge:hover {
+    border-color: #007AFF;
+    box-shadow: 0 0 10px rgba(0, 122, 255, 0.2);
+}
+.metric-card {
+    background-color: #111111;
+    border-left: 2px solid #007AFF;
+}
+.btn-glow-blue:hover {
+    box-shadow: 0 0 15px rgba(0, 122, 255, 0.4);
+}
+.btn-glow-orange:hover {
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.4);
+}
+
+/* Custom scrollbar for IDE feel */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #0A0A0B;
+}
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
+
+
+.glow-border:hover {
+     border-color: #007AFF;
+     box-shadow: 0 0 15px rgba(0, 122, 255, 0.15);
+}
+
+.terminal-cursor::after {
+    content: '_';
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.backdrop-blur-xl {
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+}
