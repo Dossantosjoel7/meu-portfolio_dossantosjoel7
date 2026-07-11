@@ -7,12 +7,17 @@ tags: ["Astro", "Tailwind", "Arquitetura"]
 description: "Um olhar técnico sobre a arquitetura deste portfólio, explorando as Content Collections do Astro e o novo motor do Tailwind v4."
 ---
 
-Quando comecei a construir este portfólio, tinha três objetivos principais:
-1. **Desempenho incrivelmente rápido.**
-2. **Suporte bilingue nativo (Inglês e Português).**
-3. **Uma estética moderna, com inspiração cyberpunk e glassmorphism.**
+Hoje, dia 11 de julho de 2026, coloco oficialmente em produção a primeira iteração da minha plataforma pessoal. A criação desta infraestrutura não é apenas a entrega de um website; é o primeiro passo concreto em direção aos meus objetivos profissionais a longo prazo.
 
-Depois de avaliar várias frameworks, escolhi o **Astro** pela sua abordagem padrão de zero-JS e excelente suporte para geração de sites estáticos (SSG). Combinado com o recém-lançado **Tailwind CSS v4**, a experiência de desenvolvimento foi incrível.
+Quando iniciei o planeamento arquitetónico deste projeto, defini três requisitos fundamentais:
+
+1. **Um ecossistema robusto para documentar os meus desenvolvimentos futuros** (desde arquiteturas em C/C++ e automação no Zorin OS, até implementações de modelos 3D no Blender).
+2. **Suporte bilingue nativo (Inglês e Português)**, refletindo o meu foco e preparação para o mercado de trabalho global.
+3. **Um espaço dedicado aos meus Dev-Logs**, pensado especificamente para partilhar processos lógicos e de resolução de problemas.
+
+Durante a fase de desenvolvimento, tirei partido de fluxos de trabalho assistidos por Inteligência Artificial e integrei ferramentas como o IDE Antigravity para acelerar a escrita de código redundante e focar-me na arquitetura.
+
+Depois de avaliar várias frameworks, escolhi o **Astro** pela sua filosofia padrão de *zero-JS* e pelo seu excelente desempenho na geração de sites estáticos (SSG). Combinado com o recém-lançado **Tailwind CSS v4**, a experiência de desenvolvimento e a performance revelaram-se excecionais.
 
 ## A Arquitetura
 
@@ -58,4 +63,4 @@ O efeito de glassmorphism, como o que vês nos cartões de projetos, é facilmen
 
 ## Conclusão
 
-Construir este portfólio foi um excelente exercício de planeamento arquitetónico. Ao manter a base estática e adicionando melhorias progressivas com JavaScript vanilla (como o modal em que possivelmente estás a ler isto!), consegui atingir uma pontuação perfeita no Lighthouse sem sacrificar o fator "wow" visual.
+Construir e estabilizar esta base foi um excelente exercício prático de engenharia de frontend. Ao priorizar uma fundação puramente estática e injetando micro-interações de JavaScript Vanilla apenas onde estritamente necessário (como no controlo dos painéis modais), sem abdicar da estética técnica e imersiva.
