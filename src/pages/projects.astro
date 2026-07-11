@@ -31,20 +31,6 @@ const description = "Explore all the academic, personal, and professional projec
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
       <ProjectCard
-        projectId="ai-education"
-        title="AI Education Agents"
-        subtitle="Multi-Agent Learning System"
-        status="v1.0 STABLE"
-        description="A suite of autonomous multi-agent systems designed to revolutionize personalized learning. Leveraging large language models to act as specialized tutors, researchers, and assessment coordinators."
-        tags={[
-          { icon: "terminal", label: "Python 3.11" },
-          { icon: "database", label: "Ollama" },
-          { icon: "dashboard", label: "Streamlit" },
-        ]}
-        viewDetailsLabel="View Details"
-      />
-
-      <ProjectCard
         projectId="portfolio"
         title="Personal Portfolio"
         subtitle="Full-Stack Web Application"
@@ -54,20 +40,6 @@ const description = "Explore all the academic, personal, and professional projec
           { icon: "code", label: "Astro" },
           { icon: "palette", label: "Tailwind v4" },
           { icon: "language", label: "TypeScript" },
-        ]}
-        viewDetailsLabel="View Details"
-      />
-
-      <ProjectCard
-        projectId="inventory-sys"
-        title="IT Inventory System"
-        subtitle="Enterprise Management Tool"
-        status="v1.2 STABLE"
-        description="A comprehensive IT asset management system developed during internship at TW Twins Lda. Tracks hardware diagnostics, maintenance schedules, and equipment lifecycle."
-        tags={[
-          { icon: "storage", label: "MS Office 365" },
-          { icon: "monitor", label: "VirtualBox" },
-          { icon: "description", label: "Documentation" },
         ]}
         viewDetailsLabel="View Details"
       />
@@ -99,29 +71,6 @@ const description = "Explore all the academic, personal, and professional projec
   <!-- Projects Data for Modal -->
   <script>
     (window as any).__PROJECTS_DATA__ = {
-      "ai-education": {
-        title: "AI Education Agents",
-        icon: "school",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAAC6DQxgko0ynNvtXjsdRPw1VUwwO-Yqa0OwuTn9kx8gTvuy4kA1MifNwaBKUIckyFdJfF8uVTIRFZUtUwQxzEC1TpDXeeG1hmLr2WHMJx5bwN6bO7hJAD9srR8ieHgd9XhPgH2z3iXxXCzJ02SMix5whHjUUK8SPpNm9m2TL3eb1fhsJatKVGB1NdcOgS8VO3eG7dT1PwYkoZ_XM0uEBMKBXe6tKDlbVMQSC-dcs41_BZk6PPYho",
-        overview: "A suite of autonomous multi-agent systems designed to revolutionize personalized learning. Leveraging large language models to act as specialized tutors, researchers, and assessment coordinators, creating a seamless end-to-end educational journey for students in computer science.",
-        challenge: "Standard AI chatbots lack pedagogical context and memory, leading to disjointed learning experiences and factual hallucinations in technical topics.",
-        solution: "An orchestrated agent architecture using RAG (Retrieval-Augmented Generation) to ground tutoring sessions in verified academic datasets.",
-        techStack: [
-          { icon: "terminal", label: "Python 3.11" },
-          { icon: "database", label: "Ollama" },
-          { icon: "dashboard", label: "Streamlit" },
-          { icon: "link", label: "LangChain" },
-        ],
-        metrics: [
-          { label: "Inference Latency", value: "< 1.2s" },
-          { label: "Knowledge Accuracy", value: "94.8%" },
-          { label: "Concurrent Agents", value: "12+" },
-        ],
-        features: ["Semantic Memory", "Auto-Grading Logic", "PDF Context Injection"],
-        github: "https://github.com/Dossantosjoel7",
-        demo: "#",
-        statusText: "Production Ready",
-      },
       "portfolio": {
         title: "Personal Portfolio",
         icon: "web",
@@ -144,30 +93,7 @@ const description = "Explore all the academic, personal, and professional projec
         github: "https://github.com/Dossantosjoel7",
         demo: "#",
         statusText: "Live",
-      },
-      "inventory-sys": {
-        title: "IT Inventory System",
-        icon: "inventory_2",
-        image: "",
-        overview: "A comprehensive IT asset management system developed during a school internship at TW Twins Lda. The system tracks hardware diagnostics, maintenance schedules, and equipment lifecycle across the organization.",
-        challenge: "The company had no centralized system to track IT assets, leading to lost equipment, redundant purchases, and difficulty scheduling maintenance.",
-        solution: "Developed a standardized inventory system using MS Office 365, integrated with technical documentation and a SWOT analysis of the IT infrastructure.",
-        techStack: [
-          { icon: "storage", label: "MS Office 365" },
-          { icon: "monitor", label: "VirtualBox" },
-          { icon: "description", label: "Documentation" },
-          { icon: "analytics", label: "SWOT Analysis" },
-        ],
-        metrics: [
-          { label: "Assets Tracked", value: "200+" },
-          { label: "Downtime Reduction", value: "40%" },
-          { label: "VMs Configured", value: "5" },
-        ],
-        features: ["Hardware Diagnostics", "Maintenance Scheduling", "Technical Documentation"],
-        github: "https://github.com/Dossantosjoel7",
-        demo: "#",
-        statusText: "Completed",
-      },
+      }
     };
   </script>
 

@@ -29,21 +29,7 @@ const description = "Explore todos os projetos académicos, pessoais e profissio
       <span class="font-label-sm text-label-sm text-text-muted hidden md:inline">INVESTIGAÇÃO & DESENVOLVIMENTO</span>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-      <ProjectCard
-        projectId="ai-education"
-        title="Agentes IA Educacionais"
-        subtitle="Sistema Multi-Agente de Aprendizagem"
-        status="v1.0 ESTÁVEL"
-        description="Um conjunto de sistemas multi-agente autónomos concebidos para revolucionar a aprendizagem personalizada. Utiliza modelos de linguagem de grande escala como tutores especializados, investigadores e coordenadores de avaliação."
-        tags={[
-          { icon: "terminal", label: "Python 3.11" },
-          { icon: "database", label: "Ollama" },
-          { icon: "dashboard", label: "Streamlit" },
-        ]}
-        viewDetailsLabel="Ver Detalhes"
-      />
-
+      
       <ProjectCard
         projectId="portfolio"
         title="Portfólio Pessoal"
@@ -54,20 +40,6 @@ const description = "Explore todos os projetos académicos, pessoais e profissio
           { icon: "code", label: "Astro" },
           { icon: "palette", label: "Tailwind v4" },
           { icon: "language", label: "TypeScript" },
-        ]}
-        viewDetailsLabel="Ver Detalhes"
-      />
-
-      <ProjectCard
-        projectId="inventory-sys"
-        title="Sistema de Inventário TI"
-        subtitle="Ferramenta de Gestão Empresarial"
-        status="v1.2 ESTÁVEL"
-        description="Um sistema abrangente de gestão de ativos TI desenvolvido durante o estágio na TW Twins Lda. Acompanha diagnósticos de hardware, calendários de manutenção e ciclo de vida de equipamentos."
-        tags={[
-          { icon: "storage", label: "MS Office 365" },
-          { icon: "monitor", label: "VirtualBox" },
-          { icon: "description", label: "Documentação" },
         ]}
         viewDetailsLabel="Ver Detalhes"
       />
@@ -99,29 +71,6 @@ const description = "Explore todos os projetos académicos, pessoais e profissio
   <!-- Dados dos Projetos para o Modal -->
   <script>
     (window as any).__PROJECTS_DATA__ = {
-      "ai-education": {
-        title: "Agentes IA Educacionais",
-        icon: "school",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAAC6DQxgko0ynNvtXjsdRPw1VUwwO-Yqa0OwuTn9kx8gTvuy4kA1MifNwaBKUIckyFdJfF8uVTIRFZUtUwQxzEC1TpDXeeG1hmLr2WHMJx5bwN6bO7hJAD9srR8ieHgd9XhPgH2z3iXxXCzJ02SMix5whHjUUK8SPpNm9m2TL3eb1fhsJatKVGB1NdcOgS8VO3eG7dT1PwYkoZ_XM0uEBMKBXe6tKDlbVMQSC-dcs41_BZk6PPYho",
-        overview: "Um conjunto de sistemas multi-agente autónomos concebidos para revolucionar a aprendizagem personalizada. Utiliza modelos de linguagem de grande escala como tutores especializados, investigadores e coordenadores de avaliação, criando um percurso educacional completo para estudantes de ciências da computação.",
-        challenge: "Os chatbots IA padrão não possuem contexto pedagógico e memória, levando a experiências de aprendizagem desconexas e alucinações factuais em tópicos técnicos.",
-        solution: "Uma arquitetura de agentes orquestrada usando RAG (Retrieval-Augmented Generation) para fundamentar as sessões de tutoria em datasets académicos verificados.",
-        techStack: [
-          { icon: "terminal", label: "Python 3.11" },
-          { icon: "database", label: "Ollama" },
-          { icon: "dashboard", label: "Streamlit" },
-          { icon: "link", label: "LangChain" },
-        ],
-        metrics: [
-          { label: "Latência de Inferência", value: "< 1.2s" },
-          { label: "Precisão do Conhecimento", value: "94.8%" },
-          { label: "Agentes Concorrentes", value: "12+" },
-        ],
-        features: ["Memória Semântica", "Lógica de Auto-Avaliação", "Injeção de Contexto PDF"],
-        github: "https://github.com/Dossantosjoel7",
-        demo: "#",
-        statusText: "Pronto para Produção",
-      },
       "portfolio": {
         title: "Portfólio Pessoal",
         icon: "web",
@@ -144,25 +93,7 @@ const description = "Explore todos os projetos académicos, pessoais e profissio
         github: "https://github.com/Dossantosjoel7",
         demo: "#",
         statusText: "Online",
-      },
-      "inventory-sys": {
-        title: "Sistema de Inventário TI",
-        icon: "inventory_2",
-        image: "",
-        overview: "Um sistema abrangente de gestão de ativos TI desenvolvido durante um estágio escolar na TW Twins Lda. O sistema acompanha diagnósticos de hardware, calendários de manutenção e ciclo de vida de equipamentos em toda a organização.",
-        challenge: "A empresa não tinha um sistema centralizado para rastrear ativos TI, levando a equipamentos perdidos, compras redundantes e dificuldade em agendar manutenções.",
-        solution: "Desenvolvimento de um sistema de inventário padronizado usando MS Office 365, integrado com documentação técnica e uma análise SWOT da infraestrutura de TI.",
-        techStack: [
-          { icon: "storage", label: "MS Office 365" },
-          { icon: "monitor", label: "VirtualBox" },
-          { icon: "description", label: "Documentação" },
-          { icon: "analytics", label: "Análise SWOT" },
-        ],
-        features: ["Diagnóstico de Hardware", "Agendamento de Manutenção", "Documentação Técnica"],
-        github: "https://github.com/Dossantosjoel7",
-        demo: "#",
-        statusText: "Concluído",
-      },
+      }
     };
   </script>
 
